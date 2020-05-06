@@ -1,15 +1,23 @@
 #!/bin/bash
-source ../helper.sh
 
-# create file structure
-APPS_DIRECTORY="$HOME/dotapps/apps"
-FINAL_PATH="$HOME/local"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+while [ ! -f "$SCRIPT_DIR/load_enviroment.sh" ]; do
+    SCRIPT_DIR="$( cd "$SCRIPT_DIR/.." > /dev/null 2>&1 && pwd )"
+done
+
+source "$SCRIPT_DIR/load_enviroment.sh"
+source "$DOTAPPS_HOME/helper.sh"
 
 # Log file for errors
-LOG_FILE="../errors.log"
+LOG_FILE="$DOTAPPS_HOME/debug.log"
+
+# file structure information
+APPS_DIRECTORY="$INSTALL_DIRECTORY/apps"
+INSTALL_PATH="$INSTALL_DIRECTORY/local"
 
 # Install ncurses
 install_ncurses() {
+    CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
     print_header "Installing ncurses"
     NCURSES_DOWNLOAD_PATH="$APPS_DIRECTORY/ncurses"
     mkdir -p $NCURSES_DOWNLOAD_PATH
@@ -20,9 +28,9 @@ install_ncurses() {
         print_subheader "Downloading ncurses"
         output=$( curl -f https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz -o $NCURSES_TAR_BALL &>> $LOG_FILE)
         if [[ $? == 22 ]]; then
-            print_tabbed "$GLOBAL_DASHES"
-            print_tabbed "Failed downloading ncurses: link - $NCURSES_LINK"
-            print_tabbed "Aborting ncurses install, check errors.log for details"
+            echo "$GLOBAL_DASHES"
+            echo "Failed downloading ncurses: link - $NCURSES_LINK"
+            echo "Aborting ncurses install, check errors.log for details"
             return
         fi
         print_done
