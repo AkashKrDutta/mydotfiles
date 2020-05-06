@@ -1,11 +1,14 @@
 #!/bin/bash
-set -e
 source ../helper.sh
 
 # create file structure
 APPS_DIRECTORY="$HOME/dotapps/apps"
 FINAL_PATH="$HOME/local"
 
+# Log file for errors
+LOG_FILE="../errors.log"
+
+# Install ncurses
 install_ncurses() {
     print_header "Installing ncurses"
     NCURSES_DOWNLOAD_PATH="$APPS_DIRECTORY/ncurses"
@@ -15,11 +18,11 @@ install_ncurses() {
     NCURSES_TAR_BALL=$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION.tar.gz
     if [ ! -f $NCURSES_TAR_BALL ]; then
         print_subheader "Downloading ncurses"
-        output=$( curl -f --silent https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz -o $NCURSES_TAR_BALL)
+        output=$( curl -f https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz -o $NCURSES_TAR_BALL &>> $LOG_FILE)
         if [[ $? == 22 ]]; then
             print_tabbed "$GLOBAL_DASHES"
             print_tabbed "Failed downloading ncurses: link - $NCURSES_LINK"
-            print_tabbed "Aborting ncurses install"
+            print_tabbed "Aborting ncurses install, check errors.log for details"
             return
         fi
         print_done

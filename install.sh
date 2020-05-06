@@ -1,6 +1,9 @@
 #! /bin/bash
 source helper.sh
 
+# Log file for errors
+LOG_FILE="../errors.log"
+
 # create file structure
 mkdir -p "$HOME/dotapps"
 APPS_DIRECTORY="$HOME/dotapps/apps"
@@ -18,11 +21,11 @@ install_zsh() {
     ZSH_TAR_BALL=$ZSH_DOWNLOAD_PATH/zsh-$ZSH_VERSION.tar.xz
     if [ ! -f $ZSH_TAR_BALL ]; then
         print_subheader "Downloading zsh"
-        output=$(curl --silent -f -o $ZSH_TAR_BALL  -L $ZSH_LINK)
+        output=$(curl --silent -f -o $ZSH_TAR_BALL  -L $ZSH_LINK &>> $LOG_FILE)
         if [[ $? == 22 ]]; then
             print_tabbed "$GLOBAL_DASHES"
             print_tabbed "Failed downloading zsh: link - $ZSH_LINK"
-            print_tabbed "Aborting zsh install"
+            print_tabbed "Aborting ncurses install, check errors.log for details"
             return
         fi
         print_done
