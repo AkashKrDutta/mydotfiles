@@ -32,3 +32,34 @@ print_done(){
     echo "DONE"
     echo 
 }
+
+# $1 = output file
+# $2 = Link
+# $3 = Log file 
+error_checked_curl () {
+    curl --silent -o "$1" -L "$2" &>> "$3"
+    if [[ $? != 0 ]]; then
+        echo "Failed downloading from link - $2"
+        echo "Aborting install, check debug.log for details"
+        return 1
+    fi
+    print_done
+    return 0
+}
+
+# $1 = tarball path
+# $2 = output folder
+# $3 = Log file 
+error_checked_unzip () {
+    # Use 7z installed earlier! 
+    # Decompress and write into output stream
+    # Read from input stream, overwrite existing files and anticipate tar archive 
+    7za x $1 -so 2>> "$3" | 7za x -si -aoa -ttar -o"$2" &>> "$3"
+    if [[ $? != 0 ]]; then
+        echo "Failed extracting tarball - $1"
+        echo "Aborting install, check debug.log for details"
+        return 1
+    fi
+    print_done
+    return 0
+}
