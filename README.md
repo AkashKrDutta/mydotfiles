@@ -1,4 +1,4 @@
-## Basic dot files configuration
+## Install apps and their dotfile configs without sudo
 
 1. Change configs present in config.sh according to your needs.
 2. Run install.sh

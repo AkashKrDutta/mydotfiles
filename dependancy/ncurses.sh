@@ -7,6 +7,10 @@ while [ ! -f "$SCRIPT_DIR/load_enviroment.sh" ]; do
 done
 source "$SCRIPT_DIR/load_enviroment.sh"
 source "$DOTAPPS_HOME/helper.sh"
+# create the file structure
+mkdir -p $APPS_DIRECTORY 
+mkdir -p $INSTALL_PATH 
+
 
 install_ncurses() {
     CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
@@ -31,6 +35,7 @@ install_ncurses() {
     print_subheader "Installing ncurses"
     return 0
 }
+
 
 install_ncurses
 ret=$?

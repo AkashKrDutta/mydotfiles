@@ -7,11 +7,6 @@ while [ ! -f "$SCRIPT_DIR/load_enviroment.sh" ]; do
 done
 source "$SCRIPT_DIR/load_enviroment.sh"
 source "$DOTAPPS_HOME/helper.sh"
-
-
-# create installation directories
-mkdir -p $INSTALL_DIRECTORY
-
 # create the file structure
 mkdir -p $APPS_DIRECTORY 
 mkdir -p $INSTALL_PATH 
@@ -27,5 +22,3 @@ $DOTAPPS_HOME/apps/7zip.sh
 # Install ZSH
 $DOTAPPS_HOME/apps/zsh.sh
 
-#print_header "INSTALLING OH-MY-ZSH"
-#print_subheader "DOWNLOADING OH-MY-ZSH"
