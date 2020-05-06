@@ -19,6 +19,8 @@ install_7zip() {
     if [ ! -f $_7ZIP_TAR_BALL ]; then
         print_subheader "Downloading 7zip"
 	error_checked_curl "$_7ZIP_TAR_BALL" "$_7ZIP_LINK" "$LOG_FILE"
+        ret=$?
+        if [[ $ret != 0 ]];then return 1; fi
     else
 	print_subheader "Found 7zip tarball, skipping download..."
     fi
@@ -28,13 +30,16 @@ install_7zip() {
     if [[ $? != 0 ]]; then
         echo "Failed extracting 7zip: tarball - $_7ZIP_TAR_BALL"
         echo "Aborting 7zip install, check debug.log for details"
-        return
+        return 1
     fi
     print_done
     print_subheader "Installing 7zip"
     make -C ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION} &>> "$LOG_FILE"
     cp -r ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION}/bin $INSTALL_PATH
     print_done
+    return 0
 }
 
 install_7zip
+ret=$?
+print_completion $ret

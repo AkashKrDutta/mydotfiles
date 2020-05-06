@@ -18,16 +18,21 @@ install_zsh() {
     ZSH_TAR_BALL=$ZSH_DOWNLOAD_PATH/zsh-$ZSH_VERSION.tar.xz
     if [ ! -f $ZSH_TAR_BALL ]; then
         print_subheader "Downloading zsh"
-	ret=$(error_checked_curl "$ZSH_TAR_BALL" "$ZSH_LINK" "$LOG_FILE")
-        if [[ ret != 0 ]];then return; fi
+	error_checked_curl "$ZSH_TAR_BALL" "$ZSH_LINK" "$LOG_FILE"
+	ret=$?
+        if [[ $ret != 0 ]];then return 1; fi
     else
 	print_subheader "Found zsh tarball, skipping download..."
     fi
 
     print_subheader "Extracting zsh"
-    ret=$(error_checked_unzip "$ZSH_TAR_BALL" "$ZSH_DOWNLOAD_PATH" "$LOG_FILE")
-    if [[ ret != 0 ]];then return; fi
+    error_checked_unzip "$ZSH_TAR_BALL" "$ZSH_DOWNLOAD_PATH" "$LOG_FILE"
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
     print_subheader "Installing zsh"
+    return 0
 }
 
 install_zsh
+ret=$?
+print_completion $ret

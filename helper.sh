@@ -33,6 +33,15 @@ print_done(){
     echo 
 }
 
+print_completion(){
+    ret=$1
+    if [[ $ret != 0 ]]; then
+        echo "Installation failed. Check debug.log"
+    else
+        echo "Installation done successfully"
+    fi
+}
+
 # $1 = output file
 # $2 = Link
 # $3 = Log file 
