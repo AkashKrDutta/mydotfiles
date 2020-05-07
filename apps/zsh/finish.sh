@@ -7,6 +7,9 @@ done
 source "$SCRIPT_DIR/load_enviroment.sh"
 source "$DOTAPPS_HOME/helper.sh"
 
+debug_info="\n"$(printf "=%.0s" {1..75})"\n ${BASH_SOURCE[0]} : "$(date)"\n""$(printf "=%.0s" {1..75})"
+echo -e $debug_info >> $LOG_FILE
+
 # zsh dotfile directory that zsh will recognize
 echo "export ZDOTDIR=\"$ZDOTDIR\"" >> ~/.bashrc
 mkdir -p $ZDOTDIR

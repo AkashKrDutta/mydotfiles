@@ -13,6 +13,9 @@ mkdir -p $INSTALL_PATH
 mkdir -p $DOT_DIRECTORY 
 
 
+debug_info="\n"$(printf "=%.0s" {1..75})"\n ${BASH_SOURCE[0]} : "$(date)"\n""$(printf "=%.0s" {1..75})"
+echo -e $debug_info >> $LOG_FILE
+
 install_zsh() {
     CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
     print_header "Installing zsh"
