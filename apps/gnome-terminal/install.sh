@@ -16,18 +16,16 @@ install_dracula_solarized() {
     CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
     print_header "Installing dracula_solarized"
     mkdir -p $DRACULA_SOLARIZED_PATH
-    cp $DOTAPPS_HOME/apps/gnome-terminal/dircolors $DRACULA_SOLARIZED_PATH
-    cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-solarized-gnome-terminal-profile.dconf $DRACULA_SOLARIZED_PATH
 
     # Install solarized ls outputs
     print_subheader "Installing ls solarized colors"
-    echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
-    echo 'eval `dircolors '"$DRACULA_SOLARIZED_PATH/dircolors"'`' >> $ZDOTDIR/.zshrc
+    cp $DOTAPPS_HOME/apps/gnome-terminal/dircolors $DRACULA_SOLARIZED_PATH
     print_done
 
 
     # Code to find gnome version and sets the tool accordingly
     print_subheader "Installing gnome-terminal dracula profile"
+    cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-solarized-gnome-terminal-profile.dconf $DRACULA_SOLARIZED_PATH
     gnomeVersion="$(expr \
         "$(LANGUAGE=en_US.UTF-8 gnome-terminal --version)" : \
         '^[^[:digit:]]* \(\([[:digit:]]*\.*\)*\)' \
