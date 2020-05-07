@@ -1,6 +1,9 @@
 ## Install apps and their dotfile configs without sudo
 
-### The only file changed is ~/.bashrc, apps installation occur in custom directory
+The only file changed is ~/.bashrc, apps installation occur in custom directory.
+Works in debian. Useful when changing systems, moving to new enviroment. All apps are installed from source.
+
+Steps for installation -
 
 1. Change configs present in config.sh according to your needs.
 2. Run install.sh
