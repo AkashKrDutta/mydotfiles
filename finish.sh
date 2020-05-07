@@ -12,4 +12,7 @@ echo 'export PATH='"$INSTALL_PATH/bin"':$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH='"$INSTALL_PATH/lib"':$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export CPPFLAGS='"-I$INSTALL_PATH/include" >> ~/.bashrc
 echo 'export LDFLAGS='"-L$INSTALL_PATH/lib" >> ~/.bashrc
+echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
+echo 'export MANPATH="'"$INSTALL_PATH/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
+echo 'export MANPATH="'"$INSTALL_PATH/share/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
 

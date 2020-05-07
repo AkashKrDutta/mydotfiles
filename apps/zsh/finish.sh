@@ -7,6 +7,7 @@ done
 source "$SCRIPT_DIR/load_enviroment.sh"
 source "$DOTAPPS_HOME/helper.sh"
 
+# zsh dotfile directory that zsh will recognize
 echo "export ZDOTDIR=\"$ZDOTDIR\"" >> ~/.bashrc
 mkdir -p $ZDOTDIR
 if [ -f $ZDOTDIR/.zshrc ]; then
