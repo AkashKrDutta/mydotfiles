@@ -14,25 +14,54 @@ mkdir -p $INSTALL_PATH
 
 install_ncurses() {
     CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
+
     print_header "Installing ncurses"
     NCURSES_DOWNLOAD_PATH="$APPS_DIRECTORY/ncurses"
     mkdir -p $NCURSES_DOWNLOAD_PATH
     NCURSES_VERSION="6.2"
     NCURSES_LINK="https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$NCURSES_VERSION.tar.gz"
+    
     NCURSES_TAR_BALL=$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION.tar.gz
     if [ ! -f $NCURSES_TAR_BALL ]; then
         print_subheader "Downloading ncurses"
         error_checked_curl "$NCURSES_TAR_BALL" "$NCURSES_LINK" "$LOG_FILE"
         ret=$?
-        if [[ $ret != 0 ]];then return; fi
+        if [[ $ret != 0 ]];then return 1; fi
     else
 	print_subheader "Found ncurses tarball, skipping download..."
     fi
+    
     print_subheader "Extracting ncurses"
     error_checked_unzip "$NCURSES_TAR_BALL" "$NCURSES_DOWNLOAD_PATH" "$LOG_FILE"
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi
-    print_subheader "Installing ncurses"
+    
+    print_subheader "Configuring ncurses"
+    NCURSES_EXTRACT="$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION"
+    
+    # configure uses --enable-shared to create shared libararies
+    output=$(cd $NCURSES_EXTRACT && ./configure --enable-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+    
+    print_subheader "Make in progress"
+    # now make 
+    # env variables used by make to create shared libarries
+    export CXXFLAGS=" -fPIC"
+    export CFLAGS=" -fPIC"
+    make -C $NCURSES_EXTRACT &>> "$LOG_FILE"
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+    
+    print_subheader "Make Install in progress"
+    # make install to copy bin, lib, includes
+    make install -C $NCURSES_EXTRACT &>> "$LOG_FILE"
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+    
     return 0
 }
 

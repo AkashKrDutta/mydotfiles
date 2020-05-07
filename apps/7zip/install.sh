@@ -18,6 +18,7 @@ install_7zip() {
     _7ZIP_DOWNLOAD_PATH="$APPS_DIRECTORY/7zip"
     mkdir -p "$_7ZIP_DOWNLOAD_PATH"
     _7ZIP_VERSION="16.02"
+
     _7ZIP_LINK="https://nchc.dl.sourceforge.net/project/p7zip/p7zip/${_7ZIP_VERSION}/p7zip_${_7ZIP_VERSION}_src_all.tar.bz2"
     _7ZIP_TAR_BALL=$_7ZIP_DOWNLOAD_PATH/7zip-$_7ZIP_VERSION.tar.xz
     if [ ! -f $_7ZIP_TAR_BALL ]; then
@@ -37,10 +38,12 @@ install_7zip() {
         return 1
     fi
     print_done
+
     print_subheader "Installing 7zip"
     make -C ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION} &>> "$LOG_FILE"
     cp -r ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION}/bin $INSTALL_PATH
     print_done
+
     return 0
 }
 

@@ -61,9 +61,9 @@ error_checked_curl () {
 # $3 = Log file 
 error_checked_unzip () {
     # Use 7z installed earlier! 
-    # Decompress and write into output stream
-    # Read from input stream, overwrite existing files and anticipate tar archive 
-    7za x $1 -so 2>> "$3" | 7za x -si -aoa -ttar -o"$2" &>> "$3"
+    # Decompress and write the archive into output stream
+    # Read from input stream and untar the archive
+    7za x $1 -so 2>> $3 | tar xf - -C $2 &>> $3
     if [[ $? != 0 ]]; then
         echo "Failed extracting tarball - $1"
         echo "Aborting install, check debug.log for details"
