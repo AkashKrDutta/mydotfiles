@@ -17,8 +17,8 @@ debug_info="\n"$(printf "=%.0s" {1..50})"\n New Execution at - "$(date)"\n""$(pr
 echo -e $debug_info >> $LOG_FILE
 
 # Install 7zip
-$DOTAPPS_HOME/apps/7zip.sh
+$DOTAPPS_HOME/apps/7zip/install.sh
 
 # Install ZSH
-$DOTAPPS_HOME/apps/zsh.sh
+$DOTAPPS_HOME/apps/zsh/install.sh
 
