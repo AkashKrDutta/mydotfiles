@@ -10,6 +10,7 @@ source "$DOTAPPS_HOME/helper.sh"
 # create the file structure
 mkdir -p $APPS_DIRECTORY 
 mkdir -p $INSTALL_PATH 
+mkdir -p $DOT_DIRECTORY 
 
 
 echo "NOTE: Any verbose output will be hidden and their output redirected to debug.log in case anything goes wrong"
