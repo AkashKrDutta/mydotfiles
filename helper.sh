@@ -52,7 +52,6 @@ error_checked_curl () {
         echo "Aborting install, check debug.log for details"
         return 1
     fi
-    print_done
     return 0
 }
 
@@ -69,6 +68,5 @@ error_checked_unzip () {
         echo "Aborting install, check debug.log for details"
         return 1
     fi
-    print_done
     return 0
 }

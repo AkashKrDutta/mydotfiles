@@ -36,9 +36,12 @@ install_ncurses() {
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi
     
-    print_subheader "Configuring ncurses"
     NCURSES_EXTRACT="$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION"
-    
+
+    print_subheader "Configuring ncurses"
+    # env variables used by make and configure to create shared libarries
+    export CXXFLAGS=" -fPIC"
+    export CFLAGS=" -fPIC"
     # configure uses --enable-shared to create shared libararies
     output=$(cd $NCURSES_EXTRACT && ./configure --enable-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
     ret=$?
@@ -47,9 +50,6 @@ install_ncurses() {
     
     print_subheader "Make in progress"
     # now make 
-    # env variables used by make to create shared libarries
-    export CXXFLAGS=" -fPIC"
-    export CFLAGS=" -fPIC"
     make -C $NCURSES_EXTRACT &>> "$LOG_FILE"
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi

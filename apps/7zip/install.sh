@@ -39,9 +39,15 @@ install_7zip() {
     fi
     print_done
 
-    print_subheader "Installing 7zip"
-    make -C ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION} &>> "$LOG_FILE"
-    cp -r ${_7ZIP_DOWNLOAD_PATH}/p7zip_${_7ZIP_VERSION}/bin $INSTALL_PATH
+    _7ZIP_EXTRACT="$_7ZIP_DOWNLOAD_PATH/p7zip_$_7ZIP_VERSION"
+
+    print_subheader "Make in progress"
+    make -C $_7ZIP_EXTRACT &>> "$LOG_FILE"
+    print_done
+
+    print_subheader "Make install in progress"
+    sed -i "s|DEST_HOME=.*|DEST_HOME=$INSTALL_PATH|" "$_7ZIP_EXTRACT/makefile.common"
+    make install -C $_7ZIP_EXTRACT &>> "$LOG_FILE"
     print_done
 
     return 0

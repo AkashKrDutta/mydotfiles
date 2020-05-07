@@ -33,7 +33,32 @@ install_zsh() {
     error_checked_unzip "$ZSH_TAR_BALL" "$ZSH_DOWNLOAD_PATH" "$LOG_FILE"
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi
-    print_subheader "Installing zsh"
+    print_done
+
+    ZSH_EXTRACT="$ZSH_DOWNLOAD_PATH/zsh-$ZSH_VERSION"
+
+    print_subheader "Configuring zsh"
+    # env variables used by make to create shared libarries
+    # export CXXFLAGS=" -fPIC"
+    # export CFLAGS=" -fPIC"
+    # configure uses --enable-shared to create shared libararies
+    output=$(cd $ZSH_EXTRACT && ./configure --enable-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+
+    print_subheader "Make in progress"
+    make -C $ZSH_EXTRACT &>> "$LOG_FILE"
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+
+    print_subheader "Make Install in progress"
+    make install -C $ZSH_EXTRACT &>> "$LOG_FILE"
+    ret=$?
+    if [[ $ret != 0 ]];then return 1; fi
+    print_done
+
     return 0
 }
 
