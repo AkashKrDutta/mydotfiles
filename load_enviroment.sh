@@ -18,5 +18,9 @@ LOG_FILE="$DOTAPPS_HOME/debug.log"
 APPS_DIRECTORY="$INSTALL_DIRECTORY/apps"
 INSTALL_PATH="$INSTALL_DIRECTORY/local"
 DOT_DIRECTORY="$INSTALL_DIRECTORY/dotfiles"
+
+# Dot directories whose files should not be deleted.
+# Required for functioning
 ZDOTDIR="$DOT_DIRECTORY/zsh"
 OHMYZSH_DOWNLOAD_PATH="$DOT_DIRECTORY/oh-my-zsh"
+DRACULA_SOLARIZED_PATH="$DOT_DIRECTORY/gnome-terminal"

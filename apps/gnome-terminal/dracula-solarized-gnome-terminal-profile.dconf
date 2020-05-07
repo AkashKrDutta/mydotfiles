@@ -1,0 +1,8 @@
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='#282A36'
+use-theme-colors=false
+palette=['#262626', '#E356A7', '#42E66C', '#E4F34A', '#9B6BDF', '#E64747', '#75D7EC', '#EFA554', '#7A7A7A', '#FF79C6', '#50FA7B', '#F1FA8C', '#BD93F9', '#FF5555', '#8BE9FD', '#FFB86C']
+bold-color-same-as-fg=false
+bold-color='#6E46A4'
+foreground-color='#F8F8F2'
+visible-name='dracula-solarized'
