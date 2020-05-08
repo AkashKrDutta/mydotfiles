@@ -1,6 +1,6 @@
 # Install apps and their dotfile configs without sudo
 
-The only file changed is ~/.bashrc (and config files that a user can edit without sudo). Apps installation occur in custom directories using source code. Useful when moving to new enviroment.
+All files are kept in a custom directory except changes made to ~/.bashrc and ~/.local/share/fonts etc (config files which can be changed withou sudo). Useful when moving to new enviroment.
 
 ## Pre Installations
 Change configs present in `config.sh` according to your needs.

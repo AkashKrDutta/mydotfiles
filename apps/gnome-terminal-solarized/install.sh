@@ -22,13 +22,14 @@ install_dracula_solarized() {
 
     # Install solarized ls outputs
     print_subheader "Installing ls solarized colors"
-    cp $DOTAPPS_HOME/apps/gnome-terminal/dircolors $DRACULA_SOLARIZED_PATH
+    cp $DOTAPPS_HOME/apps/gnome-terminal-solarized/dircolors $DRACULA_SOLARIZED_PATH
     print_done
 
 
     # Code to find gnome version and sets the tool accordingly
-    print_subheader "Installing gnome-terminal dracula profile"
-    cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-solarized-gnome-terminal-profile.dconf $DRACULA_SOLARIZED_PATH
+    print_subheader "Installing gnome-terminal dracula profile with Meslo GS fonts"
+    cp $DOTAPPS_HOME/apps/gnome-terminal-solarized/fonts/* $HOME/.local/share/fonts/
+    cp $DOTAPPS_HOME/apps/gnome-terminal-solarized/dracula-solarized-gnome-terminal-profile-fonts.dconf $DRACULA_SOLARIZED_PATH
     gnomeVersion="$(expr \
         "$(LANGUAGE=en_US.UTF-8 gnome-terminal --version)" : \
         '^[^[:digit:]]* \(\([[:digit:]]*\.*\)*\)' \
@@ -44,7 +45,7 @@ install_dracula_solarized() {
 	return 1
     fi
 
-    dconf load "$dconfdir"/ < $DRACULA_SOLARIZED_PATH/dracula-solarized-gnome-terminal-profile.dconf &>> $LOG_FILE
+    dconf load "$dconfdir"/ < $DRACULA_SOLARIZED_PATH/dracula-solarized-gnome-terminal-profile-fonts.dconf &>> $LOG_FILE
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi
 
