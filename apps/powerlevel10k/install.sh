@@ -19,6 +19,9 @@ install_powerlevel10k() {
     CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
     print_header "Installing powerlevel10k zsh theme"
     mkdir -p $POWERLEVEL10K_PATH
+    ZSH_CUSTOM="$OHMYZSH_DOWNLOAD_PATH/custom"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
+    sed -i 's|ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' $ZDOTDIR/.zshrc 
     cp $DOTAPPS_HOME/apps/powerlevel10k/p10k.zsh $POWERLEVEL10K_PATH/.p10k.zsh
     print_done
 
