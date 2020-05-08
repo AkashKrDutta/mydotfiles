@@ -8,10 +8,11 @@ Change configs present in `config.sh` according to your needs.
 ## Order of Installations
 Recommended order of app installation -
 
-1. 7za
+1. 7za --> important since following depend on this
 1. zsh (ncurses might be dependancy)
 1. oh-my-zsh
-1. gnome-terminal (themes)
+1. dracula-gnome-terminal
+1. powerlevel10k
 
 ## Post Installations
 Run `finish.sh` to complete the installation.
