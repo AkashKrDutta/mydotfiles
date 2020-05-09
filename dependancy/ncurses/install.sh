@@ -47,7 +47,7 @@ install_ncurses() {
     export CXXFLAGS=" -fPIC"
     export CFLAGS=" -fPIC"
     # configure uses --enable-shared to create shared libararies
-    output=$(cd $NCURSES_EXTRACT && ./configure --enable-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
+    output=$(cd $NCURSES_EXTRACT && ./configure --with-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
     ret=$?
     if [[ $ret != 0 ]];then return 1; fi
     print_done
