@@ -18,6 +18,6 @@ Recommended order of app installation -
 Run `finish.sh` to complete the installation.
 
 ## Distribution Supported
-* Debian
+* Ubuntu
 
 Will attach screenshots [WIP]
