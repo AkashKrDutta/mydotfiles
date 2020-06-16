@@ -21,3 +21,6 @@ Run `finish.sh` to complete the installation.
 * Ubuntu
 
 Will attach screenshots [WIP]
+
+## What next?
+Check out my perfect-dark firefox theme here: https://github.com/AkashKrDutta/firefox-dark-theme
