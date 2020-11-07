@@ -16,7 +16,7 @@ mkdir -p "$download_path"
 
 if [ ! -f $tar_ball ]; then
     print_header "Downloading 7zip"
-    curl --silent -o "$tar_ball" -L "$link"
+    curl -o "$tar_ball" -L "$link"
 else
     print_header "Found 7zip tarball, skipping download..."
 fi

@@ -2,8 +2,8 @@
 
 abort()
 {
-    echo "An error occurred. Exiting..." >&2
-    echo "Check debug.log for more info." >&2
+    echo "An error occurred. Exiting..."
+    echo "Check debug.log for more info."
     exit 1
 }
 
