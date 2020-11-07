@@ -34,5 +34,5 @@ export DRACULA_SOLARIZED_PATH="$DOT_DIRECTORY/gnome-terminal"
 export POWERLEVEL10K_PATH="$DOT_DIRECTORY/powerlevel10k"
 
 install_7zip() {
-    ./"$DOTAPPS_HOME/apps/7zip/install.sh" 2>> "$LOG_FILE"
+    "$DOTAPPS_HOME/apps/7zip/install.sh" 2>> "$LOG_FILE"
 }

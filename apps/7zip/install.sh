@@ -26,11 +26,8 @@ tar -xjvf $tar_ball -C $download_path
 
 print_header "Make in progress"
 make -C $extract_path 
-print_done
 
 print_header "Make install in progress"
 sed -i "s|DEST_HOME=.*|DEST_HOME=$INSTALL_PATH|" "$extract_path/makefile.common"
 make install -C $extract_path 
-print_done
-
-
+print_completion
