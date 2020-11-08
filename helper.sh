@@ -3,13 +3,21 @@
 # $1 = Header to print
 print_header() {
     to_print="$1"
-    HASHES=$(printf "#%.0s" {1..25})
-    echo -e "$HASHES\n$to_print\n$HASHES"
+    hashes=$(printf "#%.0s" {1..25})
+    echo -e "$hashes\n$to_print"
 }
 
-# $1 = return code
-print_completion(){
-    echo -e "Installation done successfully\n"
+# $1 = Subheader to print
+print_subheader() {
+    to_print="$1"
+    echo -e "\t+ $to_print"
+}
+
+# $1 = Footer to print
+print_footer(){
+    to_print="$1"
+    hashes=$(printf "#%.0s" {1..25})
+    echo -e "$to_print\n$hashes"
 }
 
 # $1 = tarball path

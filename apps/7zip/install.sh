@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source "$DOTAPPS_HOME/app_install_abort.sh"
+source "$DOTAPPS_HOME/trap.sh"
 source "$DOTAPPS_HOME/helper.sh"
 
 # Config
@@ -15,19 +15,21 @@ print_header "Installing 7zip"
 mkdir -p "$download_path"
 
 if [ ! -f $tar_ball ]; then
-    print_header "Downloading 7zip"
-    curl -o "$tar_ball" -L "$link"
+    print_subheader "Downloading 7zip"
+    curl -o "$tar_ball" -L "$link" 1>&2
 else
-    print_header "Found 7zip tarball, skipping download..."
+    print_subheader "Found 7zip tarball, skipping download..."
 fi
 
-print_header "Extracting 7zip"
-tar -xjvf $tar_ball -C $download_path 
+print_subheader "Extracting 7zip"
+tar -xjvf $tar_ball -C $download_path 1>&2
 
-print_header "Make in progress"
-make -C $extract_path 
+print_subheader "Make in progress"
+make -C $extract_path 1>&2
 
-print_header "Make install in progress"
+print_subheader "Make install in progress"
 sed -i "s|DEST_HOME=.*|DEST_HOME=$INSTALL_PATH|" "$extract_path/makefile.common"
-make install -C $extract_path 
-print_completion
+make install -C $extract_path 1>&2
+print_footer "Done"
+
+source "$DOTAPPS_HOME/untrap.sh"
