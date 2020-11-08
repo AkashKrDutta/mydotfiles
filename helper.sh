@@ -26,5 +26,5 @@ error_checked_unzip () {
     # Use 7z installed earlier! 
     # Decompress and write the archive into output stream
     # Read from input stream and untar the archive
-    7za x $1 -so | tar xf - -C $2
+    7za x $1 -so | tar xf - -C $2 1>&2
 }

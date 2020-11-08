@@ -7,8 +7,8 @@ source "$DOTAPPS_HOME/helper.sh"
 version="16.02"
 link="https://nchc.dl.sourceforge.net/project/p7zip/p7zip/${version}/p7zip_${version}_src_all.tar.bz2"
 download_path="$APPS_DIRECTORY/7zip"
-extract_path="$download_path/p7zip_$version"
 tar_ball=$download_path/7zip-$version.tar.xz
+extract_path="$download_path/p7zip_$version"
 
 print_header "Installing 7zip"
 

@@ -27,7 +27,7 @@ mkdir -p $INSTALL_PATH
 mkdir -p $DOT_DIRECTORY 
 
 # Dot directories whose files should not be deleted.
-# Required for functioning
+# Required for configuring
 export ZDOTDIR="$DOT_DIRECTORY/zsh"
 export OHMYZSH_DOWNLOAD_PATH="$DOT_DIRECTORY/oh-my-zsh"
 export DRACULA_SOLARIZED_PATH="$DOT_DIRECTORY/gnome-terminal"
