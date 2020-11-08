@@ -36,3 +36,7 @@ export POWERLEVEL10K_PATH="$DOT_DIRECTORY/powerlevel10k"
 install_7zip() {
     "$DOTAPPS_HOME/apps/7zip/install.sh" 2>> "$LOG_FILE"
 }
+
+install_zsh() {
+    "$DOTAPPS_HOME/apps/zsh/install.sh" 2>> "$LOG_FILE"
+}

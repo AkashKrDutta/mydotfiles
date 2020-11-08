@@ -14,8 +14,8 @@ Recommended order of app installation -
 1. dracula-gnome-terminal
 1. powerlevel10k
 
-## Post Installations
-Run `finish.sh` to complete the installation.
+## How to Install
+Run `source create_env.sh` which would enable functions : `install_7zip`, `install_zsh` etc. Use these functions to install.
 
 ## Distribution Supported
 * Ubuntu
