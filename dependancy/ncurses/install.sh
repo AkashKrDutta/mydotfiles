@@ -1,75 +1,44 @@
 #!/bin/bash
 
-# Header for all files (they can be run independently)
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-while [ ! -f "$SCRIPT_DIR/load_enviroment.sh" ]; do
-    SCRIPT_DIR="$( cd "$SCRIPT_DIR/.." > /dev/null 2>&1 && pwd )"
-done
-source "$SCRIPT_DIR/load_enviroment.sh"
+source "$DOTAPPS_HOME/trap.sh"
 source "$DOTAPPS_HOME/helper.sh"
-# create the file structure
-mkdir -p $APPS_DIRECTORY 
-mkdir -p $INSTALL_PATH 
-mkdir -p $DOT_DIRECTORY 
 
+version="6.2"
+link="https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$version.tar.gz"
+download_path="$APPS_DIRECTORY/ncurses"
+tar_ball=$download_path/ncurses-$version.tar.gz
+extract_path="$download_path/ncurses-$version"
 
-debug_info="\n"$(printf "=%.0s" {1..75})"\n ${BASH_SOURCE[0]} : "$(date)"\n""$(printf "=%.0s" {1..75})"
-echo -e $debug_info >> $LOG_FILE
+print_header "Installing ncurses"
 
-install_ncurses() {
-    CURRENT_HEADER_SEQUENCE=$(($CURRENT_HEADER_SEQUENCE + 1))
+mkdir -p $download_path
 
-    print_header "Installing ncurses"
-    NCURSES_DOWNLOAD_PATH="$APPS_DIRECTORY/ncurses"
-    mkdir -p $NCURSES_DOWNLOAD_PATH
-    NCURSES_VERSION="6.2"
-    NCURSES_LINK="https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$NCURSES_VERSION.tar.gz"
-    
-    NCURSES_TAR_BALL=$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION.tar.gz
-    if [ ! -f $NCURSES_TAR_BALL ]; then
-        print_subheader "Downloading ncurses"
-        error_checked_curl "$NCURSES_TAR_BALL" "$NCURSES_LINK" "$LOG_FILE"
-        ret=$?
-        if [[ $ret != 0 ]];then return 1; fi
-    else
-	print_subheader "Found ncurses tarball, skipping download..."
-    fi
-    
-    print_subheader "Extracting ncurses"
-    error_checked_unzip "$NCURSES_TAR_BALL" "$NCURSES_DOWNLOAD_PATH" "$LOG_FILE"
-    ret=$?
-    if [[ $ret != 0 ]];then return 1; fi
-    
-    NCURSES_EXTRACT="$NCURSES_DOWNLOAD_PATH/ncurses-$NCURSES_VERSION"
+if [ ! -f $tar_ball ]; then
+    print_subheader "Downloading ncurses"
+    curl -o "$tar_ball" -L "$link" 1>&2
+else
+    print_subheader "Found ncurses tarball, skipping download..."
+fi
 
-    print_subheader "Configuring ncurses"
-    # env variables used by make and configure to create shared libarries
-    export CXXFLAGS=" -fPIC"
-    export CFLAGS=" -fPIC"
-    # configure uses --enable-shared to create shared libararies
-    output=$(cd $NCURSES_EXTRACT && ./configure --with-shared --prefix="$INSTALL_PATH" &>> "$LOG_FILE")
-    ret=$?
-    if [[ $ret != 0 ]];then return 1; fi
-    print_done
-    
-    print_subheader "Make in progress"
-    # now make 
-    make -C $NCURSES_EXTRACT &>> "$LOG_FILE"
-    ret=$?
-    if [[ $ret != 0 ]];then return 1; fi
-    print_done
-    
-    print_subheader "Make Install in progress"
-    # make install to copy bin, lib, includes
-    make install -C $NCURSES_EXTRACT &>> "$LOG_FILE"
-    ret=$?
-    if [[ $ret != 0 ]];then return 1; fi
-    print_done
-    
-    return 0
-}
+print_subheader "Extracting ncurses"
+unzip_helper "$tar_ball" "$download_path"
 
+print_subheader "Configuring ncurses"
+# env variables used by make and configure to create shared libarries
+# fPIC option required for Position Independent Code
+export CXXFLAGS=" -fPIC"
+export CFLAGS=" -fPIC"
+# configure uses --enable-shared to create shared libararies
+output=$(cd $extract_path && ./configure --with-shared --prefix="$INSTALL_PATH" 1>&2)
 
-install_ncurses
-ret=$?
-print_completion $ret
+print_subheader "Make in progress"
+# now make 
+make -C $extract_path 1>&2
+
+print_subheader "Make Install in progress"
+# make install to copy bin, lib, includes
+make install -C $extract_path 1>&2
+
+print_footer "Done"
+
+source "$DOTAPPS_HOME/untrap.sh"

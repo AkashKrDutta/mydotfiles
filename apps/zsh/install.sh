@@ -24,7 +24,6 @@ fi
 print_subheader "Extracting zsh"
 unzip_helper "$tar_ball" "$download_path"
 
-
 print_subheader "Configuring zsh"
 # env variables used by make to create shared libarries
 # export CXXFLAGS=" -fPIC"
@@ -39,7 +38,26 @@ print_subheader "Make Install in progress"
 make install -C $extract_path 1>&2
 
 print_subheader "Configuring bashrc and zshrc"
-"$DOTAPPS_HOME/apps/zsh/finish.sh"
+
+# Update bashrc to use zsh
+# Create a copy of bashrc if run first time to preserve system original bashrc
+if [ -f ~/.bashhrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
+    cp ~/.bashrc ~/.bashrc.dotapps.orig
+fi
+# Create a tmp copy of bashrc that will be replaced if abort trap is called
+if [ -f ~/.bashhrc ]; then
+    cp ~/.bashrc ~/.bashrc.dotapps.tmp
+fi
+# Update bashrc to invoke zsh
+echo "export ZDOTDIR=\"$ZDOTDIR\"" >> ~/.bashrc
+cat <<'EOF' >> ~/.bashrc
+export SHELL=$(which zsh)
+[ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
+EOF
+
+
+mkdir -p $ZDOTDIR
+echo "#Initial comment from automated script" > $ZDOTDIR/.zshrc
 
 print_footer "Done"
 
