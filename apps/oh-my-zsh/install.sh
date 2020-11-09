@@ -12,13 +12,19 @@ export ZSH="$OHMYZSH_DOWNLOAD_PATH"
 OHMYZSH_LINK="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 mkdir -p $DOTAPPS_HOME/tmp
 curl -Lo "$DOTAPPS_HOME"/tmp/omzshinstall.sh "$OHMYZSH_LINK"
+
+# Make copy of zshrc present in home as this would conflict with oh-my-zsh installation
+if [ -f ~/.zshrc ]; then
+    mv ~/.zshrc ~/.zshrc.dotapps.orig
+fi
+
 sh "$DOTAPPS_HOME"/tmp/omzshinstall.sh
 
 if [ -f $ZDOTDIR/.zshrc ]; then
     mv $ZDOTDIR/.zshrc $ZDOTDIR/.zshrc.dotapps.copy
 fi
-sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $APPS_DIRECTORY/oh-my-zsh/zshrc
-cp $APPS_DIRECTORY/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
+sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $DOTAPPS_HOME/apps/oh-my-zsh/zshrc
+cp $DOTAPPS_HOME/apps/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
 
 # Setup man paths
 echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc

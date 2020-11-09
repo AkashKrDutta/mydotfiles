@@ -10,7 +10,7 @@ print_header() {
 # $1 = Subheader to print
 print_subheader() {
     to_print="$1"
-    echo -e "\t+ $to_print"
+    echo -e "+ $to_print"
 }
 
 # $1 = Footer to print
