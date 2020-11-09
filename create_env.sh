@@ -60,3 +60,7 @@ install_zsh() {
 install_oh_my_zsh() {
     "$DOTAPPS_HOME/apps/oh-my-zsh/install.sh" 2>> "$LOG_FILE"
 }
+
+install_ncurses() {
+    "$DOTAPPS_HOME/dependancy/ncurses/install.sh" 2>> "$LOG_FILE"
+}
