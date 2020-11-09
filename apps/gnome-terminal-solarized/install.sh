@@ -6,7 +6,7 @@ while [ ! -f "$SCRIPT_DIR/load_enviroment.sh" ]; do
     SCRIPT_DIR="$( cd "$SCRIPT_DIR/.." > /dev/null 2>&1 && pwd )"
 done
 source "$SCRIPT_DIR/load_enviroment.sh"
-source "$DOTAPPS_HOME/helper.sh"
+source "$DOTAPPS_HOME/helpers/helper.sh"
 # create the file structure
 mkdir -p $APPS_DIRECTORY 
 mkdir -p $INSTALL_PATH 

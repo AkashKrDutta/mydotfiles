@@ -22,7 +22,7 @@ print_footer(){
 
 # $1 = tarball path
 # $2 = output folder
-error_checked_unzip () {
+unzip_helper () {
     # Use 7z installed earlier! 
     # Decompress and write the archive into output stream
     # Read from input stream and untar the archive

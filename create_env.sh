@@ -4,6 +4,7 @@
 export DOTAPPS_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 source "$DOTAPPS_HOME/config.sh"
+source "$DOTAPPS_HOME/helpers/trap.sh"
 
 DOTAPPS_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -33,10 +34,29 @@ export OHMYZSH_DOWNLOAD_PATH="$DOT_DIRECTORY/oh-my-zsh"
 export DRACULA_SOLARIZED_PATH="$DOT_DIRECTORY/gnome-terminal"
 export POWERLEVEL10K_PATH="$DOT_DIRECTORY/powerlevel10k"
 
+# Setup bashrc 
+# Create a copy of bashrc if run first time to preserve system original bashrc
+if [ -f ~/.bashrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
+    cp ~/.bashrc ~/.bashrc.dotapps.orig
+fi
+# Create a tmp copy of bashrc that will be replaced if abort trap is called
+cp ~/.bashrc ~/.bashrc.dotapps.tmp
+echo -e "\n#Config variables for custom apps installed via script" >> ~/.bashrc
+echo 'export PATH='"$INSTALL_PATH/bin"':$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH='"$INSTALL_PATH/lib"':$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export CPPFLAGS='"-I$INSTALL_PATH/include" >> ~/.bashrc
+echo 'export LDFLAGS='"-L$INSTALL_PATH/lib" >> ~/.bashrc
+
+source "$DOTAPPS_HOME/helpers/untrap.sh"
+
 install_7zip() {
     "$DOTAPPS_HOME/apps/7zip/install.sh" 2>> "$LOG_FILE"
 }
 
 install_zsh() {
     "$DOTAPPS_HOME/apps/zsh/install.sh" 2>> "$LOG_FILE"
+}
+
+install_oh_my_zsh() {
+    "$DOTAPPS_HOME/apps/oh-my-zsh/install.sh" 2>> "$LOG_FILE"
 }

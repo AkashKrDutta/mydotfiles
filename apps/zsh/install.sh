@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source "$DOTAPPS_HOME/trap.sh"
-source "$DOTAPPS_HOME/helper.sh"
+source "$DOTAPPS_HOME/helpers/trap.sh"
+source "$DOTAPPS_HOME/helpers/helper.sh"
 
 # Config
 version="5.8"
@@ -41,13 +41,11 @@ print_subheader "Configuring bashrc and zshrc"
 
 # Update bashrc to use zsh
 # Create a copy of bashrc if run first time to preserve system original bashrc
-if [ -f ~/.bashhrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
+if [ -f ~/.bashrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
     cp ~/.bashrc ~/.bashrc.dotapps.orig
 fi
 # Create a tmp copy of bashrc that will be replaced if abort trap is called
-if [ -f ~/.bashhrc ]; then
-    cp ~/.bashrc ~/.bashrc.dotapps.tmp
-fi
+cp ~/.bashrc ~/.bashrc.dotapps.tmp
 # Update bashrc to invoke zsh
 echo "export ZDOTDIR=\"$ZDOTDIR\"" >> ~/.bashrc
 cat <<'EOF' >> ~/.bashrc
@@ -61,5 +59,5 @@ echo "#Initial comment from automated script" > $ZDOTDIR/.zshrc
 
 print_footer "Done"
 
-source "$DOTAPPS_HOME/untrap.sh"
+source "$DOTAPPS_HOME/helpers/untrap.sh"
 

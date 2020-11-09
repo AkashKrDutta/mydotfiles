@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source "$DOTAPPS_HOME/trap.sh"
-source "$DOTAPPS_HOME/helper.sh"
+source "$DOTAPPS_HOME/helpers/trap.sh"
+source "$DOTAPPS_HOME/helpers/helper.sh"
 
 version="6.2"
 link="https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$version.tar.gz"
@@ -41,4 +41,4 @@ make install -C $extract_path 1>&2
 
 print_footer "Done"
 
-source "$DOTAPPS_HOME/untrap.sh"
+source "$DOTAPPS_HOME/helpers/untrap.sh"

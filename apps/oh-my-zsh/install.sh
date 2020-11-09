@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source "$DOTAPPS_HOME/trap.sh"
-source "$DOTAPPS_HOME/helper.sh"
+source "$DOTAPPS_HOME/helpers/trap.sh"
+source "$DOTAPPS_HOME/helpers/helper.sh"
 
 print_header "Installing oh-my-zsh"
 # config variables for oh-my-zsh
@@ -20,6 +20,11 @@ fi
 sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $APPS_DIRECTORY/oh-my-zsh/zshrc
 cp $APPS_DIRECTORY/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
 
+# Setup man paths
+echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
+echo 'export MANPATH="'"$INSTALL_PATH/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
+echo 'export MANPATH="'"$INSTALL_PATH/share/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
+
 # Install some basic plugins
 print_subheader "Installing oh-my-zsh plugins"
 export ZSH_CUSTOM="$OHMYZSH_DOWNLOAD_PATH/custom"
@@ -31,4 +36,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}
 
 print_footer "Done"
 
-source "$DOTAPPS_HOME/untrap.sh"
+source "$DOTAPPS_HOME/helpers/untrap.sh"

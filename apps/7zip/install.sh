@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source "$DOTAPPS_HOME/trap.sh"
-source "$DOTAPPS_HOME/helper.sh"
+source "$DOTAPPS_HOME/helpers/trap.sh"
+source "$DOTAPPS_HOME/helpers/helper.sh"
 
 # Config
 version="16.02"
@@ -32,4 +32,4 @@ sed -i "s|DEST_HOME=.*|DEST_HOME=$INSTALL_PATH|" "$extract_path/makefile.common"
 make install -C $extract_path 1>&2
 print_footer "Done"
 
-source "$DOTAPPS_HOME/untrap.sh"
+source "$DOTAPPS_HOME/helpers/untrap.sh"
