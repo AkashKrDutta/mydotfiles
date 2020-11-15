@@ -15,7 +15,7 @@ Recommended order:
 1. 7za: Must install at first. Other installation depend on this as it generalizes decompression be it gzip, bzip etc.
 1. zsh (ncurses might be dependancy)
 1. oh-my-zsh
-1. gnome-terminal (config only loaded)
+1. gnome-terminal: Configs loaded only. Beware: Your current profiles will be lost. Learn how to backup here: https://unix.stackexchange.com/questions/448811/how-to-export-a-gnome-terminal-profile
 
 
 ## Distribution Supported
