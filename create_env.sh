@@ -30,7 +30,7 @@ mkdir -p $DOT_DIRECTORY
 # Required for configuring
 export ZDOTDIR="$DOT_DIRECTORY/zsh"
 export OHMYZSH_DOWNLOAD_PATH="$DOT_DIRECTORY/oh-my-zsh"
-export DRACULA_SOLARIZED_PATH="$DOT_DIRECTORY/gnome-terminal"
+export DRACULA_PATH="$DOT_DIRECTORY/gnome-terminal"
 export POWERLEVEL10K_PATH="$DOT_DIRECTORY/powerlevel10k"
 
 # This functions makes changes to bash for installing various apps
@@ -53,4 +53,8 @@ install_oh_my_zsh() {
 
 install_ncurses() {
     "$DOTAPPS_HOME/dependancy/ncurses/install.sh" 2>> "$LOG_FILE"
+}
+
+install_config_gnome_terminal() {
+    "$DOTAPPS_HOME/apps/gnome-terminal/install.sh" 2>> "$LOG_FILE"
 }

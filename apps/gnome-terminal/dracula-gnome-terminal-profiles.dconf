@@ -1,0 +1,20 @@
+[:35f96b04-c0e5-4c34-bf99-0565ff2e943e]
+visible-name='Default'
+
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='#F8F8F2'
+visible-name='dracula-solarized'
+palette=['rgb(38,38,38)', 'rgb(210,0,58)', 'rgb(66,230,108)', 'rgb(228,243,74)', 'rgb(155,107,223)', 'rgb(230,71,71)', 'rgb(117,215,236)', 'rgb(239,165,84)', 'rgb(122,122,122)', 'rgb(235,53,65)', 'rgb(80,250,123)', 'rgb(241,250,140)', 'rgb(189,147,249)', 'rgb(255,85,85)', 'rgb(139,233,253)', 'rgb(255,184,108)']
+bold-is-bright=false
+cursor-shape='block'
+use-system-font=false
+use-theme-colors=false
+font='Inconsolata 14'
+scrollback-unlimited=true
+bold-color-same-as-fg=false
+bold-color='rgb(95,45,162)'
+background-color='#282A36'
+audible-bell=false
+
+[/]
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '35f96b04-c0e5-4c34-bf99-0565ff2e943e']

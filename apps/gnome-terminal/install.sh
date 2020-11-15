@@ -30,13 +30,13 @@ cp $DOTAPPS_HOME/apps/gnome-terminal/dircolors $DRACULA_PATH
 
 print_subheader "Installing gnome-terminal dracula profile with Inconsolata fonts"
 cp $DOTAPPS_HOME/apps/gnome-terminal/fonts/* $HOME/.local/share/fonts/
-cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-gnome-terminal-profile-fonts.dconf $DRACULA_PATH
+cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-gnome-terminal-profiles.dconf $DRACULA_PATH
 
-dconf load "$dconfdir"/ < $DRACULA_PATH/dracula-gnome-terminal-profile-fonts.dconf 1>&2
+dconf load "$dconfdir"/ < $DRACULA_PATH/dracula-gnome-terminal-profiles.dconf 1>&2
 
 # Put eval in zshrc
 echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
-echo 'eval `dircolors '"$DRACULA_SOLARIZED_PATH/dircolors"'`' >> $ZDOTDIR/.zshrc
+echo 'eval `dircolors '"$DRACULA_PATH/dircolors"'`' >> $ZDOTDIR/.zshrc
 
 print_footer "Done"
 
