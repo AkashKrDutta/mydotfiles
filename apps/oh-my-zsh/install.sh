@@ -25,7 +25,7 @@ if [ -f $ZDOTDIR/.zshrc ]; then
     mv $ZDOTDIR/.zshrc $ZDOTDIR/.zshrc.dotapps.copy
 fi
 cp $DOTAPPS_HOME/apps/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
-sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $DOTAPPS_HOME/apps/oh-my-zsh/zshrc
+sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $ZDOTDIR/.zshrc
 
 # Setup man paths
 echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc

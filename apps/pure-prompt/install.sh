@@ -11,9 +11,12 @@ print_header "Installing pure"
 
 mkdir -p $download_path
 
-git clone $link "$download_path/pure"
-echo "fpath+=\"$download_path/pure\"" >> ~/$ZDOTDIR/.zshrc
-cat <<'EOF' >> ~/$ZDOTDIR/.zshrc
+if [ ! -d "$download_path/pure" ]; then
+    git clone $link "$download_path/pure"
+fi
+sed -i 's|ZSH_THEME=.*|ZSH_THEME=""|' $ZDOTDIR/.zshrc
+echo "fpath+=\"$download_path/pure\"" >> $ZDOTDIR/.zshrc
+cat <<'EOF' >> $ZDOTDIR/.zshrc
 autoload -U promptinit; promptinit
 prompt pure
 zstyle :prompt:pure:git:fetch only_upstream yes
