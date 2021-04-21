@@ -107,5 +107,4 @@ function d() {
 }
 
 alias grepc="grep --color=always"
-alias tmux='tmux -2'
 export TERM="xterm-256color"

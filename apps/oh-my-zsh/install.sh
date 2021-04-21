@@ -41,6 +41,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins
 # Install zsh-sytax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 
+echo "" >> $ZDOTDIR/.zshrc
+
 print_footer "Done"
 
 source "$DOTAPPS_HOME/helpers/untrap.sh"

@@ -37,6 +37,7 @@ dconf load "$dconfdir"/ < $DRACULA_PATH/dracula-gnome-terminal-profiles.dconf 1>
 # Put eval in zshrc
 echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
 echo 'eval `dircolors '"$DRACULA_PATH/dircolors"'`' >> $ZDOTDIR/.zshrc
+echo "" >> $ZDOTDIR/.zshrc
 
 print_footer "Done"
 
