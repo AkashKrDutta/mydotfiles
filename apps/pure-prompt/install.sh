@@ -20,8 +20,8 @@ zstyle :prompt:pure:git:fetch only_upstream yes
 zstyle ':prompt:pure:prompt:success' color blue
 zstyle ':prompt:pure:prompt:error' color red
 PURE_CMD_MAX_EXEC_TIME=60
-#PURE_PROMPT_SYMBOL='⥤'
-PURE_PROMPT_SYMBOL='➤ '
+#PURE_PROMPT_SYMBOL='➤'
+PURE_PROMPT_SYMBOL='⤷'
 EOF
 
 print_footer "Done"

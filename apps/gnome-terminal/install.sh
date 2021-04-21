@@ -28,7 +28,7 @@ print_subheader "Installing ls colors"
 cp $DOTAPPS_HOME/apps/gnome-terminal/dircolors $DRACULA_PATH
 
 
-print_subheader "Installing gnome-terminal dracula profile with Inconsolata fonts"
+print_subheader "Installing gnome-terminal dracula profile with Hack fonts"
 cp $DOTAPPS_HOME/apps/gnome-terminal/fonts/* $HOME/.local/share/fonts/
 cp $DOTAPPS_HOME/apps/gnome-terminal/dracula-gnome-terminal-profiles.dconf $DRACULA_PATH
 
