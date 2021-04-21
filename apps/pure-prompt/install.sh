@@ -4,14 +4,14 @@ source "$DOTAPPS_HOME/helpers/trap.sh"
 source "$DOTAPPS_HOME/helpers/helper.sh"
 
 # Config
-link="https://sourceforge.net/projects/zsh/files/zsh/$version/zsh-$version.tar.xz/download"
+link="https://github.com/sindresorhus/pure.git"
 download_path="$PURE_PROMPT_PATH"
 
 print_header "Installing pure"
 
 mkdir -p $download_path
 
-git clone https://github.com/sindresorhus/pure.git "$download_path/pure"
+git clone $link "$download_path/pure"
 echo "fpath+=\"$download_path/pure\"" >> ~/$ZDOTDIR/.zshrc
 cat <<'EOF' >> ~/$ZDOTDIR/.zshrc
 autoload -U promptinit; promptinit
