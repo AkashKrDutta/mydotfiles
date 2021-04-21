@@ -40,10 +40,6 @@ make install -C $extract_path 1>&2
 print_subheader "Configuring bashrc and zshrc"
 
 # Update bashrc to use zsh
-# Create a copy of bashrc if run first time to preserve system original bashrc
-if [ -f ~/.bashrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
-    cp ~/.bashrc ~/.bashrc.dotapps.orig
-fi
 # Create a tmp copy of bashrc that will be replaced if abort trap is called
 cp ~/.bashrc ~/.bashrc.dotapps.tmp
 # Update bashrc to invoke zsh

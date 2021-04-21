@@ -19,12 +19,13 @@ if [ -f ~/.zshrc ]; then
 fi
 
 sh "$DOTAPPS_HOME"/tmp/omzshinstall.sh
+rm -r $DOTAPPS_HOME/tmp
 
 if [ -f $ZDOTDIR/.zshrc ]; then
     mv $ZDOTDIR/.zshrc $ZDOTDIR/.zshrc.dotapps.copy
 fi
-sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $DOTAPPS_HOME/apps/oh-my-zsh/zshrc
 cp $DOTAPPS_HOME/apps/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
+sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $DOTAPPS_HOME/apps/oh-my-zsh/zshrc
 
 # Setup man paths
 echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc

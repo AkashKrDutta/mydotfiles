@@ -29,9 +29,9 @@ mkdir -p $DOT_DIRECTORY
 # Dot directories whose files should not be deleted.
 # Required for configuring
 export ZDOTDIR="$DOT_DIRECTORY/zsh"
-export OHMYZSH_DOWNLOAD_PATH="$DOT_DIRECTORY/oh-my-zsh"
+export OHMYZSH_DOWNLOAD_PATH="$APPS_DIRECTORY/oh-my-zsh"
 export DRACULA_PATH="$DOT_DIRECTORY/gnome-terminal"
-export POWERLEVEL10K_PATH="$DOT_DIRECTORY/powerlevel10k"
+export PURE_PROMPT_PATH="$DOT_DIRECTORY/pure-prompt"
 
 # This functions makes changes to bash for installing various apps
 # Need to run once
@@ -57,4 +57,8 @@ install_ncurses() {
 
 install_config_gnome_terminal() {
     "$DOTAPPS_HOME/apps/gnome-terminal/install.sh" 2>> "$LOG_FILE"
+}
+
+install_pure_prompt() {
+    "$DOTAPPS_HOME/apps/pure-prompt/install.sh" 2>> "$LOG_FILE"
 }
