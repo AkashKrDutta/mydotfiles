@@ -1,0 +1,35 @@
+# Shell Spawn
+super + Return
+  gnome-terminal
+
+# reload config
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# for dmenu
+#super + p
+#  dmenu_run
+
+# for rofi
+super + {_, shift +} p
+  rofi -show {run, window}
+
+#quit/restart bspwm
+shift + super + {q,r}
+  bspc {quit, wm -r}
+
+#focus window
+super + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+#window state
+super + {t,shift + t,s,f,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen,~fullscreen}
+
+#kill the node
+super + {_,shift + }w
+    bspc node -{c,k}
+
+#screen lock
+super + alt + l
+    xscreensaver-command -lock
