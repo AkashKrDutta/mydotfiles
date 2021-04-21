@@ -4,6 +4,8 @@ There are two parts to this project.
 1. Install apps WITHOUT SUDO.
 2. dotfiles in .config dir
 
+![Gnome Terminal](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-1.png)
+
 ## Install apps WITHOUT SUDO.
 
 Installed files are kept in a custom directory except changes made to ~/.bashrc and ~/.local/share/fonts etc.
