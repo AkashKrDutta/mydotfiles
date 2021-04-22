@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# sxhkd is installed in custom dir and bashrc hasn't been sourced yet
+# can't source bashrc directly as bash native calls will error out in zsh
+export PATH="/home/akd/dotapps/local/bin:$PATH"
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
@@ -17,8 +21,10 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-nitrogen --set-scaled /home/osboxes/repo/polybar-themes/wallpapers/bg_14.png
-pkill polybar
-~/.config/polybar/launch.sh --forest
+# Custom configs
+
+nitrogen --restore
+#pkill polybar
+#~/.config/polybar/launch.sh --forest
 compton &
 xscreensaver &

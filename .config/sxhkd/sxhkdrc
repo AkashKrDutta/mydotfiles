@@ -6,10 +6,6 @@ super + Return
 super + Escape
   pkill -USR1 -x sxhkd
 
-# for dmenu
-#super + p
-#  dmenu_run
-
 # for rofi
 super + {_, shift +} p
   rofi -show {run, window}
@@ -28,8 +24,56 @@ super + {t,shift + t,s,f,f}
 
 #kill the node
 super + {_,shift + }w
-    bspc node -{c,k}
+  bspc node -{c,k}
+
+#swap current node with biggest window
+super + g
+  bspc node -s biggest.local
 
 #screen lock
 super + alt + l
-    xscreensaver-command -lock
+  xscreensaver-command --lock
+
+# focus the n/p desktop in current monitor
+super + bracket{left,right}
+  bspc desktop -f {prev,next}.local
+
+# Smart resize, will grow or shrink depending on location.
+# Will always grow for floating nodes.
+super + ctrl + {Left,Down,Up,Right}
+  n=10; \
+  { d1=left;   d2=right;  dx=-$n; dy=0;   \
+  , d1=bottom; d2=top;    dx=0;   dy=$n;  \
+  , d1=top;    d2=bottom; dx=0;   dy=-$n; \
+  , d1=right;  d2=left;   dx=$n;  dy=0;   \
+  } \
+  bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+
+# focus the last node/desktop
+#super + {grave,Tab}
+#  bspc {node,desktop} -f last
+
+# focuse/send a node to a desktop
+super + {_,shift+}{1-9,0}
+  bspc {desktop -f, node -d} '^{1-9,10}'
+
+# equalize local parent/root child split
+super + {_, shift +} + e
+  bspc node {@parent, @/} --equalize
+
+# rotate a tree
+super + r
+  bspc node @parent --rotate 90
+
+# preselect direction (useful for directional splits)
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
