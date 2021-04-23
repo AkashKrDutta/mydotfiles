@@ -53,9 +53,13 @@ super + ctrl + {Left,Down,Up,Right}
 #super + {grave,Tab}
 #  bspc {node,desktop} -f last
 
-# focuse/send a node to a desktop
+# focus/send a node to a desktop
 super + {_,shift+}{1-9,0}
   bspc {desktop -f, node -d} '^{1-9,10}'
+
+super + {shift +,_} + m
+  bspc monitor --focus {prev,next}
+
 
 # equalize local parent/root child split
 super + {_, shift +} + e

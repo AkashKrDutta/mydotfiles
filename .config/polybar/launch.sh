@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$HOME/.myDisplays.sh"
 dir="$HOME/.config/polybar"
 themes=(`ls --hide="launch.sh" $dir`)
 
@@ -17,7 +18,10 @@ launch_bar() {
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-		polybar -q main -c "$dir/$style/config.ini" &	
+        MONITOR="$display1" polybar -q main -c "$dir/$style/config.ini" > /tmp/polybar-$display1.log 2>&1 &
+        if [[ ! -z $externalMonitor ]]; then
+            MONITOR="$display2" polybar -q main_externalMonitor -c "$dir/$style/config.ini" > /tmp/polybar-$display2.log 2>&1 &
+        fi
 	fi
 }
 

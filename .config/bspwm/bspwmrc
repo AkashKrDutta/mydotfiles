@@ -1,12 +1,24 @@
-#! /bin/sh
+#! /bin/bash
 
-# sxhkd is installed in custom dir and bashrc hasn't been sourced yet
-# can't source bashrc directly as bash native calls will error out in zsh
-export PATH="/home/akd/dotapps/local/bin:$PATH"
+# sxhkd is installed in a custom dir and bashrc hasn't been sourced yet
+# can't source bashrc directly as it will exec out zsh
+export USER="akd"
+export HOME="/home/$USER"
+export PATH="$HOME/dotapps/local/bin:$PATH"
+
+. "$HOME/.myDisplays.sh"
+
+echo "$display1" > /tmp/out.txt
+# Run primary display always
+bspc monitor "$display1" -d 1 2 3 4 5
+echo $? >> /tmp/out.txt
+
+# Run a single external Monitor if exists
+if [[ ! -z "$externalMonitor" ]]; then
+    bspc monitor "$display2" -d 6 7 8 9 10
+fi
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-
-bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          10
@@ -24,7 +36,7 @@ bspc rule -a Screenkey manage=off
 # Custom configs
 
 nitrogen --restore
-#pkill polybar
-#~/.config/polybar/launch.sh --forest
+pkill polybar
+~/.config/polybar/launch.sh --forest
 compton &
 xscreensaver &
