@@ -18,11 +18,14 @@ bold-is-bright=false
 cursor-shape='block'
 use-system-font=false
 use-theme-colors=false
-font='Hack 13'
+use-transparent-background=true
+font='Hack 12'
+use-theme-transparency=false
 scrollback-unlimited=true
 bold-color-same-as-fg=false
-bold-color='rgb(95,45,162)'
+bold-color='rgb(175,135,255)'
 background-color='#282A36'
+background-transparency-percent=16
 audible-bell=false
 
 [/]

@@ -37,6 +37,6 @@ bspc rule -a Screenkey manage=off
 
 nitrogen --restore
 pkill polybar
-~/.config/polybar/launch.sh --forest
+~/.config/polybar/launch.sh --colorblocks
 compton &
 xscreensaver &
