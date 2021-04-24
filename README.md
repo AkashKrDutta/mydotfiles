@@ -35,11 +35,11 @@ Edit `config.sh` to configure install directory.
 * Debian based distros (Ubuntu).
 
 ## Configs and RCs
-The config files for apps are present in .config, while the rc files are present in rc_configs directory
+App configs are present in .config dir, while the home directory rc files are present in rc_configs dir
 
 ### TODO
 1. Notification using https://github.com/dunst-project/dunst.
 2. Update package notification using dunst.
-3. Wifi, sound and brightness clickable.
+3. ~~Wifi~~, sound and brightness clickable. (update: Wifi config for dmenu_networkmanager added)
 4. A light weight file manager other than nautilus.
 5. Removing default gtk based color fingerprint in bspwm window.
