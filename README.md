@@ -30,3 +30,11 @@ Edit `config.sh` to configure install directory.
 
 ### Distribution Supported
 * Debian based distros (Ubuntu).
+
+## Configs and RCs
+The config files for apps are present in .config, while the rc files are present in rc_configs directory
+
+### TODO
+1. Notification using https://github.com/dunst-project/dunst.
+2. Update package notification using dunst.
+3. Wifi, sound and brightness clickable.
