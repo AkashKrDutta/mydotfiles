@@ -8,7 +8,7 @@ super + Escape
 
 # for rofi
 super +  p
-  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi
+  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/shapes/scripts/rofi/launcher.rasi
 
 #quit/restart bspwm
 shift + super + {q,r}
@@ -32,7 +32,7 @@ super + g
 
 #screen lock
 super + alt + l
-  xscreensaver-command --lock
+  systemctl suspend
 
 # focus the n/p desktop in current monitor
 super + bracket{left,right}
