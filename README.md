@@ -1,10 +1,13 @@
 # Yet another Dot Files!
+
+![Polybar](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-1.png)
+![BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-2.png)
+![Multi Monitor BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-3.png)
+
 I started off with automating installation of zsh, ncurses, oh-my-zsh, gnome-terminal. While basic stuff is in place, some dot files are present specifically in the .config dir as well. 
 There are two parts to this project.
 1. Install apps WITHOUT SUDO.
 2. dotfiles in .config dir
-
-![Gnome Terminal](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-1.png)
 
 ## Install apps WITHOUT SUDO.
 
@@ -39,3 +42,4 @@ The config files for apps are present in .config, while the rc files are present
 2. Update package notification using dunst.
 3. Wifi, sound and brightness clickable.
 4. A light weight file manager other than nautilus.
+5. Removing default gtk based color fingerprint in bspwm window.
