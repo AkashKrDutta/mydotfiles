@@ -43,3 +43,4 @@ App configs are present in .config dir, while the home directory rc files are pr
 3. ~~Wifi~~, sound and brightness clickable. (update: Wifi config for dmenu_networkmanager added)
 4. A light weight file manager other than nautilus.
 5. Removing default gtk based color fingerprint in bspwm window.
+6. Add calendar support on clicking to date.
