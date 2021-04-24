@@ -39,7 +39,7 @@ while true; do
     # and network uptime, only checking once every 30 min for new updates
     while (( UPDATES == 0 )); do
         echo " None"
-        sleep 1800
+        sleep 3600
         get_total_updates
     done
 done
