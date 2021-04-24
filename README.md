@@ -38,3 +38,4 @@ The config files for apps are present in .config, while the rc files are present
 1. Notification using https://github.com/dunst-project/dunst.
 2. Update package notification using dunst.
 3. Wifi, sound and brightness clickable.
+4. A light weight file manager other than nautilus.
