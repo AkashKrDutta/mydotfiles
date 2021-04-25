@@ -43,7 +43,7 @@ App configs are present in .config dir, while the home directory rc files are pr
 3. ~~Wifi~~, sound and brightness clickable. (update: Wifi config for dmenu_networkmanager added, and package wicd installed).
 4. ~~A light weight file manager other than nautilus.~~ (nautilus seems to work fine for now)
 5. ~~Removing default gtk based color fingerprint in bspwm window.~~ (update: lxappearance to the rescue, with dracula gtk theme: https://draculatheme.com/gtk!)
-6. Add calendar support on clicking to date.
+6. ~~Add calendar support on clicking to date.~~ (update: added polybar action to open gnome-calendar)
 7. ~~Change system wide fonts to that of polybar.~~ (update: lxappearance does that too in widget them section to Iosevka)
 8. Add colorls and use dracula theme. https://github.com/athityakumar/colorls
 9. Edit dracula them for vim. 
