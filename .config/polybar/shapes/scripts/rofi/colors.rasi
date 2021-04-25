@@ -4,7 +4,7 @@
   al:    #00000000;
   bg:    #1F1F1FFF;
   bg1:   #bd93f9;
-  bg2:   #bd93f9;
-  bg3:   #44475a;
+  bg2:   #44475a;
+  bg3:   #bd93f9;
   fg:    #FFFFFFFF;
 }
