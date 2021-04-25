@@ -40,8 +40,8 @@ App configs are present in .config dir, while the home directory rc files are pr
 ### TODO
 1. Notification using https://github.com/dunst-project/dunst.
 2. Update package notification using dunst.
-3. ~~Wifi~~, sound and brightness clickable. (update: Wifi config for dmenu_networkmanager added)
-4. A light weight file manager other than nautilus.
-5. ~Removing default gtk based color fingerprint in bspwm window.~ (update: lxappearance to the rescue, with mojaive-dark-solid theme pack, and la capitaine icon set!)
+3. ~~Wifi~~, sound and brightness clickable. (update: Wifi config for dmenu_networkmanager added, and package wicd installed).
+4. ~~A light weight file manager other than nautilus.~~ (nautilus seems to work fine for now)
+5. ~~Removing default gtk based color fingerprint in bspwm window.~~ (update: lxappearance to the rescue, with mojaive-dark-solid theme pack, and la capitaine icon set!)
 6. Add calendar support on clicking to date.
-7. Change system wide fonts to that of polybar.
+7. ~~Change system wide fonts to that of polybar.~~ (update: lxappearance does that too in widget them section)

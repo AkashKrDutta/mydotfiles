@@ -8,7 +8,7 @@ super + Escape
 
 # for rofi
 super +  p
-  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/shapes/scripts/rofi/launcher.rasi
+  rofi -m -1 -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/shapes/scripts/rofi/launcher.rasi
 
 #quit/restart bspwm
 shift + super + {q,r}
