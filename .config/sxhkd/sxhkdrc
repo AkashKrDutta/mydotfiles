@@ -57,6 +57,7 @@ super + ctrl + {Left,Down,Up,Right}
 super + {_,shift+}{1-9,0}
   bspc {desktop -f, node -d} '^{1-9,10}'
 
+# focus on prev/next monitor
 super + {shift +,_} + m
   bspc monitor --focus {prev,next}
 
