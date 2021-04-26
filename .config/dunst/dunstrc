@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "320-25+42"
+    geometry = "320-12+42"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -64,7 +64,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#bd93f9"
+    frame_color = "#bfff00"
 
     # Define a color for the separator.
     # possible values are:
@@ -206,7 +206,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = true
+    startup_notification = false
 
     # Manage dunst's desire for talking
     # Can be one of the following values:
@@ -293,14 +293,14 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282a36"
-    foreground = "#a4bf7c"
+    foreground = "#bfff00"
     timeout = 10
         # Icon for notifications with low urgency, uncomment to enable
         #icon = /path/to/icon
 
 [urgency_normal]
     background = "#282a36"
-    foreground = "#bd93f9"
+    foreground = "#bfff00"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
