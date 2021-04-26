@@ -49,17 +49,18 @@ else
     echo "None"
 fi
 threshHold = $((3600*2))
-. /home/akd/.config/polybar/shapes/scripts/lastUpdateNotify.sh 
+lastUpdateFile=$HOME/.config/polybar/shapes/scripts/lastUpdateNotify.sh 
+. $lastUpdateFile
 currTime=$(date +%s)
 if (( currTime-lastTime >= threshHold ));then
     if (( UPDATES > 50 )); then
         dunstify -h string:x-dunst-stack-tag:updates_count -u critical -i $NOTIFY_ICON \
             "You really need to update!!" "$UPDATES New packages"
-        echo "lastTime="$currTime > /home/akd/.config/polybar/shapes/scripts/lastUpdateNotify.sh
+        echo "lastTime="$currTime > $lastUpdateFile
     elif (( UPDATES > 0 )); then
         # Show update notification for 2 mins
         dunstify -h string:x-dunst-stack-tag:updates_count -u normal -t 120000 -i $NOTIFY_ICON \
             "$UPDATES New packages"
-        echo "lastTime="$currTime > /home/akd/.config/polybar/shapes/scripts/lastUpdateNotify.sh
+        echo "lastTime="$currTime > $lastUpdateFile
     fi
 fi
