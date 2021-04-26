@@ -50,3 +50,4 @@ pkill polybar
 compton &
 xscreensaver &
 xss-lock -- xscreensaver-command --lock &
+dunst &
