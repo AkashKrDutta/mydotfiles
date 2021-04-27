@@ -86,13 +86,17 @@ super + ctrl + space
 # Audio control
 XF86AudioLowerVolume
     pactl set-sink-volume @DEFAULT_SINK@ -2%
-
 XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 # Brightness control
 XF86MonBrightnessDown
     xbacklight -dec 5
-
 XF86MonBrightnessUp
     xbacklight -inc 5
+
+# Keyboard backlight 
+XF86KbdBrightnessUp
+    sudo /opt/tweaks/kbd_backlight_adjust -inc
+XF86KbdBrightnessDown
+    sudo /opt/tweaks/kbd_backlight_adjust -dec

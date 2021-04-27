@@ -40,15 +40,15 @@ App configs are present in .config dir, while the home directory rc files are pr
 ### TODO
 1. ~~Notification using https://github.com/dunst-project/dunst, with dracula theme https://draculatheme.com/dunst.~~
 2. ~~Update package notification using dunst.~~
-3. ~~Wifi~~, ~~sound~~ and ~~brightness~~ clickable and notify using dunst. (update: Wifi config for dmenu_networkmanager added, and package wicd installed, sound: pulse audio volume controller installed and polybar already supports scroll based volume control and binded sxhkd to pactl; brightness hot keys mounted using xbacklight)
+3. ~~Wifi, sound and brightness configure using polybar and hotkeys.~~ (update: Wifi config for dmenu_networkmanager added, and package wicd installed, sound: pulse audio volume controller installed and polybar already supports scroll based volume control and binded sxhkd to pactl; brightness hot keys mounted using xbacklight; keyboard led binding possible using /sys/class/leds)
 4. ~~A light weight file manager other than nautilus.~~ (nautilus seems to work fine for now)
 5. ~~Removing default gtk based color fingerprint in bspwm window.~~ (update: lxappearance to the rescue, with dracula gtk theme: https://draculatheme.com/gtk!)
 6. ~~Add calendar support on clicking to date.~~ (update: added polybar action to open gnome-calendar)
 7. ~~Change system wide fonts to that of polybar.~~ (update: lxappearance does that too in widget them section to Iosevka)
-8. Add colorls and use dracula theme. https://github.com/athityakumar/colorls
-9. Edit dracula them for vim. 
-10. Install tmux and edit theme as in vim.
-11. ~~Add rofi dracula theme from dracule bspwm theme: https://draculatheme.com/bspwm~~
+8. Edit dracula them for vim. 
+9. Install tmux and edit theme as in vim.
+10. ~~Add rofi dracula theme from dracule bspwm theme: https://draculatheme.com/bspwm~~
+11. Low Battery dunst notification.
 
 
 ## Themes used:

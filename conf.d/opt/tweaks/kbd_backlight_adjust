@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Adjust the keyboard backlight level
+
+shopt -s -o nounset
+
+declare -i KBD_BACKLIGHT_MAX=`cat /sys/class/leds/asus::kbd_backlight/max_brightness`
+declare -i KBD_BACKLIGHT_LEV=`cat /sys/class/leds/asus::kbd_backlight/brightness` 
+
+# We need a parameter, etiher inc or dec
+if [ $# -eq 0 ] ; then
+   exit 192
+fi 
+
+case $1 in
+-inc ) 
+   # increasing:
+   if [ ${KBD_BACKLIGHT_LEV} -lt ${KBD_BACKLIGHT_MAX}  ] ; then
+      KBD_BACKLIGHT_LEV=${KBD_BACKLIGHT_LEV}+1
+      echo ${KBD_BACKLIGHT_LEV} | tee /sys/class/leds/asus::kbd_backlight/brightness
+   fi
+   ;;
+-dec )
+   # decreasing:
+   if [ ${KBD_BACKLIGHT_LEV} -gt 0 ] ; then
+      KBD_BACKLIGHT_LEV=${KBD_BACKLIGHT_LEV}-1
+      echo ${KBD_BACKLIGHT_LEV} | tee /sys/class/leds/asus::kbd_backlight/brightness
+   fi
+   ;;
+esac
+
+exit 192
