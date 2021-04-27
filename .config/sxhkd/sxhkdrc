@@ -32,6 +32,8 @@ super + g
 
 #screen lock
 super + alt + l
+  xscreensaver-command --lock
+super + alt + s
   systemctl suspend
 
 # focus the n/p desktop in current monitor
