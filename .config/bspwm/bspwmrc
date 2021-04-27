@@ -51,3 +51,7 @@ compton &
 xscreensaver &
 xss-lock -- xscreensaver-command --lock &
 pkill dunst; dunst &
+
+# Remove unplugged and disabled monitors
+bspc config remove_unplugged_monitors true
+#bspc config remove_disabled_monitors true
