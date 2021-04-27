@@ -40,7 +40,7 @@ App configs are present in .config dir, while the home directory rc files are pr
 ### TODO
 1. ~~Notification using https://github.com/dunst-project/dunst, with dracula theme https://draculatheme.com/dunst.~~
 2. ~~Update package notification using dunst.~~
-3. ~~Wifi~~, ~~sound~~ and brightness clickable and notify using dunst. (update: Wifi config for dmenu_networkmanager added, and package wicd installed, sound: pulse audio volume controller installed and polybar already supports scroll based volume control and binded sxhkd to pactl)
+3. ~~Wifi~~, ~~sound~~ and ~~brightness~~ clickable and notify using dunst. (update: Wifi config for dmenu_networkmanager added, and package wicd installed, sound: pulse audio volume controller installed and polybar already supports scroll based volume control and binded sxhkd to pactl; brightness hot keys mounted using xbacklight)
 4. ~~A light weight file manager other than nautilus.~~ (nautilus seems to work fine for now)
 5. ~~Removing default gtk based color fingerprint in bspwm window.~~ (update: lxappearance to the rescue, with dracula gtk theme: https://draculatheme.com/gtk!)
 6. ~~Add calendar support on clicking to date.~~ (update: added polybar action to open gnome-calendar)
