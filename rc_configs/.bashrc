@@ -121,25 +121,11 @@ export VISUAL="vim"
 export EDITOR="$VISUAL"
 
 #Config variables for custom apps installed via script
-#export PATH="/home/akd/local/bin":$PATH
-#export PATH="/home/akd/dotapps/local/bin":$PATH
-#export LD_LIBRARY_PATH=/home/akd/dotapps/local/lib:$LD_LIBRARY_PATH
-#export CPPFLAGS=-I/home/akd/dotapps/local/include
-#export LDFLAGS=-L/home/akd/dotapps/local/lib
-#export PATH="/home/akd/ruby-gems/bin":$PATH
-#export GEM_PATH="/home/akd/ruby-gems":$GEM_PATH
-#export DOTAPPS="$HOME/dotapps"
-#export ZDOTDIR="/home/akd/dotapps/dotfiles/zsh"
-#export SHELL=$(which zsh)
-#[ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
-#### Testing installation of everything
-
-#Config variables for custom apps installed via script
-export PATH=/home/akd/dotapps/local/bin:$PATH
-export LD_LIBRARY_PATH=/home/akd/dotapps/local/lib:$LD_LIBRARY_PATH
-export CPPFLAGS=-I/home/akd/dotapps/local/include
-export LDFLAGS=-L/home/akd/dotapps/local/lib
-export ZDOTDIR="/home/akd/dotapps/dotfiles/zsh"
+export PATH=$HOME/dotapps/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/dotapps/local/lib:$LD_LIBRARY_PATH
+export CPPFLAGS=-I$HOME/dotapps/local/include
+export LDFLAGS=-L$HOME/dotapps/local/lib
+export ZDOTDIR="$HOME/dotapps/dotfiles/zsh"
 export SHELL=$(which zsh)
 [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
 

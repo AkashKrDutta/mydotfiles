@@ -1,8 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/akd/dotapps/dotfiles/oh-my-zsh
+export ZSH=$HOME/dotapps/dotfiles/oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -110,10 +109,10 @@ alias grepc="grep --color=always"
 export TERM="xterm-256color"
 
 #Config variables for custom apps installed via script
-export MANPATH="/home/akd/dotapps/local/man":$MANPATH
-export MANPATH="/home/akd/dotapps/local/share/man":$MANPATH
+export MANPATH="$HOME/dotapps/local/man":$MANPATH
+export MANPATH="$HOME/dotapps/local/share/man":$MANPATH
 
-fpath+="/home/akd/pure"
+fpath+="$HOME/pure"
 autoload -U promptinit; promptinit
 prompt pure
 zstyle :prompt:pure:git:fetch only_upstream yes
@@ -124,7 +123,7 @@ PURE_CMD_MAX_EXEC_TIME=60
 PURE_PROMPT_SYMBOL='⤷'
 
 #Config variables for custom apps installed via script
-eval `dircolors /home/akd/dotapps/dotfiles/gnome-terminal/dircolors`
+eval `dircolors $HOME/dotapps/dotfiles/gnome-terminal/dircolors`
 
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
