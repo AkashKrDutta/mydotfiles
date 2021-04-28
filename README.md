@@ -1,13 +1,15 @@
 # Yet another Dot Files!
 
-![Polybar](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-1.png)
-![BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-2.png)
-![Multi Monitor BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/extra/ss-3.png)
+![Polybar](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-1.png)
+![BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-2.png)
+![Multi Monitor BSPWM and Rofi](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-3.png)
 
-I started off with automating installation of zsh, ncurses, oh-my-zsh, gnome-terminal. While basic stuff is in place, some dot files are present specifically in the .config dir as well. 
-There are two parts to this project.
-1. Install apps WITHOUT SUDO.
-2. dotfiles in .config dir
+I started off with automating installation of zsh, ncurses, oh-my-zsh, gnome-terminal. The basic stuff are in place, eg: zsh, ncurses, oh-my-zsh, 7za etc. Mostly the stuff we need whenever distro hopping/working on new env. I like to have my applications builded manually and installed in home folders if possible. 
+
+Apart from the installables, this is also a dot files repo (well, obviously!). The dot files are present specifically in the .config (corresponding to $HOME/.config files) and rc_config dir (corresponding to $HOME rc files). You will need to edit some configs in order to get the themes working (having a basic idea of bspwm or polybar / rofi should be enough)
+Thus, there are two parts to this project.
+1. Install apps WITHOUT SUDO. (pretty much ignorable, although helps me really to get basic stuff in place like zsh, oh-my-zsh and gnome-terminal)
+2. dotfiles in .config and rc_confgs (yeah, the actual dot files)
 
 ## Install apps WITHOUT SUDO.
 
@@ -35,7 +37,7 @@ Edit `config.sh` to configure install directory.
 * Debian based distros (Ubuntu).
 
 ## Configs and RCs
-App configs are present in .config dir, while the home directory rc files are present in rc_configs dir
+App configs are present in .config dir, while the home directory rc files are present in rc_configs dir. There are some automation scripts useful for polybar, battery-notification I wrote present in conf.d directory. Feel free to edit and use them too.
 
 ### TODO
 1. ~~Notification using https://github.com/dunst-project/dunst, with dracula theme https://draculatheme.com/dunst.~~
@@ -52,5 +54,5 @@ App configs are present in .config dir, while the home directory rc files are pr
 
 
 ## Themes used:
-1. GTK, firefox, gnome-terminal, bspwm etc, all taken from dracula with minor changes wherever needed. https://draculatheme.com/
-2. Polybar shapes theme edited for dracula 
+1. GTK, firefox, gnome-terminal, bspwm etc, all taken from dracula with minor changes wherever applicable. https://draculatheme.com/
+2. Polybar shapes [theme](https://github.com/adi1090x/polybar-themes) edited to be suitable for dracula theme.
