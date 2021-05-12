@@ -37,7 +37,7 @@ super + alt + s
   systemctl suspend
 
 # focus the n/p desktop in current monitor
-super + bracket{left,right}
+super + {comma,period}
   bspc desktop -f {prev,next}.local
 
 # Smart resize, will grow or shrink depending on location.
@@ -102,3 +102,9 @@ XF86KbdBrightnessUp
     sudo /opt/tweaks/kbd_backlight_adjust -inc
 XF86KbdBrightnessDown
     sudo /opt/tweaks/kbd_backlight_adjust -dec
+
+
+# Following are some helpful commands but not shortcuts made yet
+# Swaps desktops from monitor 2:1 to 2:2 and renames them
+# bspc desktop -s '^2:^1' -n "6"; bspc desktop '^2:^2' -n "7"
+

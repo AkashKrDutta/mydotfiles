@@ -48,11 +48,11 @@ if (( UPDATES > 0 ));then
 else
     echo "None"
 fi
-threshHold = $((3600*2))
+threshHold=$((3600*2))
 lastUpdateFile=$HOME/.config/polybar/shapes/scripts/lastUpdateNotify.sh 
 . $lastUpdateFile
 currTime=$(date +%s)
-if (( currTime-lastTime >= threshHold ));then
+if [ $((currTime-lastTime)) -ge $threshHold ];then
     if (( UPDATES > 50 )); then
         dunstify -h string:x-dunst-stack-tag:updates_count -u critical -i $NOTIFY_ICON \
             "You really need to update!!" "$UPDATES New packages"
