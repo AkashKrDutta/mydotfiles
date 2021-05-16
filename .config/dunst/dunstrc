@@ -67,8 +67,8 @@
     #frame_color = "#999c70"
 
     # Nord color theme
-    frame_color = "#E5E9F0"
-    separator_color = "#E5E9F0"
+    frame_color = "#d8dee9"
+    separator_color = "#d8dee9"
 
     # Define a color for the separator.
     # possible values are:
@@ -134,7 +134,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
@@ -185,7 +185,7 @@
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = no
 
     # Maximum amount of notifications kept in history
     history_length = 20
