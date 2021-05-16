@@ -56,3 +56,4 @@ App configs are present in .config dir, while the home directory rc files are pr
 ## Themes used:
 1. GTK, firefox, gnome-terminal, bspwm etc, all taken from dracula with minor changes wherever applicable. https://draculatheme.com/
 2. Polybar shapes [theme](https://github.com/adi1090x/polybar-themes) edited to be suitable for dracula theme.
+3. Firefox theme : https://addons.mozilla.org/en-US/firefox/addon/kristofferhagen-nord-theme
