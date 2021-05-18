@@ -1,8 +1,6 @@
 # Yet another Dot Files!
 
-![Polybar](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-1.png)
-![BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-2.png)
-![Multi Monitor BSPWM and Rofi](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/ss-3.png)
+![Nord BSPWM](https://github.com/AkashKrDutta/mydotfiles/blob/master/images/nord-ss-1.png)
 
 I started off with automating installation of zsh, ncurses, oh-my-zsh, gnome-terminal. The basic stuff are in place, eg: zsh, ncurses, oh-my-zsh, 7za etc. Mostly the stuff we need whenever distro hopping/working on new env. I like to have my applications builded manually and installed in home folders if possible. 
 
@@ -34,26 +32,17 @@ Edit `config.sh` to configure install directory.
 
 
 ### Distribution Supported
-* Debian based distros (Ubuntu).
+* Debian based distros (Ubuntu) (Can be used with any distro with minor changes)
 
 ## Configs and RCs
 App configs are present in .config dir, while the home directory rc files are present in rc_configs dir. There are some automation scripts useful for polybar, battery-notification I wrote present in conf.d directory. Feel free to edit and use them too.
 
 ### TODO
-1. ~~Notification using https://github.com/dunst-project/dunst, with dracula theme https://draculatheme.com/dunst.~~
-2. ~~Update package notification using dunst.~~
-3. ~~Wifi, sound and brightness configure using polybar and hotkeys.~~ (update: Wifi config for dmenu_networkmanager added, and package wicd installed, sound: pulse audio volume controller installed and polybar already supports scroll based volume control and binded sxhkd to pactl; brightness hot keys mounted using xbacklight; keyboard led binding possible using /sys/class/leds)
-4. ~~A light weight file manager other than nautilus.~~ (nautilus seems to work fine for now)
-5. ~~Removing default gtk based color fingerprint in bspwm window.~~ (update: lxappearance to the rescue, with dracula gtk theme: https://draculatheme.com/gtk!)
-6. ~~Add calendar support on clicking to date.~~ (update: added polybar action to open gnome-calendar)
-7. ~~Change system wide fonts to that of polybar.~~ (update: lxappearance does that too in widget them section to Iosevka)
-8. Edit dracula them for vim. 
 9. Install tmux and edit theme as in vim.
-10. ~~Add rofi dracula theme from dracule bspwm theme: https://draculatheme.com/bspwm~~
 11. Low Battery dunst notification.
 
 
 ## Themes used:
-1. GTK, firefox, gnome-terminal, bspwm etc, all taken from dracula with minor changes wherever applicable. https://draculatheme.com/
-2. Polybar shapes [theme](https://github.com/adi1090x/polybar-themes) edited to be suitable for dracula theme.
+1. Gnome-terminal, vim from https://www.nordtheme.com/ports
+2. Polybar shapes [theme](https://github.com/adi1090x/polybar-themes) edited to be suitable for nord theme.
 3. Firefox theme : https://addons.mozilla.org/en-US/firefox/addon/kristofferhagen-nord-theme
