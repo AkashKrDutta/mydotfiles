@@ -51,7 +51,7 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 1
+    separator_height = 2
 
     # Padding between text and separator.
     padding = 8
@@ -61,7 +61,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     #frame_color = "#999c70"
@@ -90,7 +90,7 @@
 
     ### Text ###
 
-    font = Iosevka 13
+    font = Roboto 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -300,7 +300,7 @@
     #background = "#282a36"
     #foreground = "#bfff00"
     background = "#4c566a"
-    foreground = "#eceff4"
+    foreground = "#ffffff"
     timeout = 30
         # Icon for notifications with low urgency, uncomment to enable
         #icon = /path/to/icon
@@ -308,7 +308,7 @@
     #background = "#282a36"
     #foreground = "#bfff00"
     background = "#5e81ac"
-    foreground = "#eceff4"
+    foreground = "#ffffff"
     timeout = 120
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
@@ -317,7 +317,7 @@
     #background = "#ff5555"
     #foreground = "#f8f8f2"
     background = "#bf616a"
-    foreground = "#eceff4"
+    foreground = "#ffffff"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon

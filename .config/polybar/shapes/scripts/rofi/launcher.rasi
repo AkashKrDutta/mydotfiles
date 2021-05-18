@@ -25,9 +25,9 @@ window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							0px;
-	border-color:					@ac;
-    border-radius:                  12px;
+	border:							4px;
+	border-color:					#d8dee9;
+    border-radius:                  0px;
 	width:							350px;
     location:                       center;
     x-offset:                       0;
@@ -50,7 +50,7 @@ entry {
     horizontal-align:               0;
     placeholder:                    "Search...";
     padding:                        10px;
-    border-radius:                  0px 12px 12px 0px;
+    border-radius:                  0px 0px 0px 0px;
     blink:                          true;
 }
 
@@ -60,7 +60,7 @@ inputbar {
     text-color:                     #FFFFFF;
     expand:                         false;
 	border:							0px;
-    border-radius:                  12px;
+    border-radius:                  0px;
 	border-color:					@ac;
     spacing:                        0px;
 }
@@ -110,6 +110,6 @@ element selected {
     background-color:               @bg3;
     text-color:                     @bg;
 	border:							0px 0px 0px 0px;
-    border-radius:                  12px;
+    border-radius:                  0px;
     border-color:                  	@bg1;
 }
