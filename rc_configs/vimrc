@@ -1,0 +1,72 @@
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+"relative line number
+set number
+set cursorline
+
+" 4 space tab and autoindent filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab     
+
+" one dark theme config
+"let g:onedark_hide_endofbuffer=1
+"let g:onedark_terminal_italics=1
+
+" Opens NERDTree on right
+let g:NERDTreeWinPos = "right"
+
+" Backspace stops working
+set backspace=indent,eol,start
+
+" YCM global config file
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
+
+" Git Gutter update time to 500ms
+set updatetime=500
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'scrooloose/nerdtree'
+" Plugin 'timakro/vim-searchant'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'yggdroot/indentline'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'bling/vim-airline'
+call vundle#end()            " required
+filetype plugin indent on    " required
+syntax on
+let g:github_colors_soft=1
+set background=dark
+colorscheme nord
+" To ignore plugin indent changes, instead use: "filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+autocmd vimEnter *.cpp noremap <F2> :w <CR> :!clear ; g++ --std=c++17 %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/fast_io.cpp
+
+" Remove ycm signature support on hover
+let g:ycm_auto_hover = ""
+
+" Vim Airline customization
+let g:airline_powerline_fonts = 1
+let g:airline_extensions = ['tabline']
+
+" Vim detects xterm and sends t_TI, t_TE https://vi.stackexchange.com/questions/27399/whats-t-te-and-t-ti-added-by-vim-8
+set t_TI= t_TE=
