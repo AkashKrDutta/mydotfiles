@@ -3,7 +3,7 @@
 @import "colors.rasi"
 
 * {
-    background-color:       @bg;
+    background-color:       @bg2;
     text-color:             @fg;
 	font:				 	"San Francisco Text 11";
 }
@@ -11,14 +11,14 @@
 window {
     width:      			225px;
     padding:    			25px;
-    border:					0px;
+    border:					4px;
     border-radius:          0px;
-    border-color:           @bg1;
+    border-color:           @bg4;
     location:               center;
     y-offset:               -2em;
 }
 
 entry {
     expand: 				true;
-    text-color:				@bg2;
+    text-color:				@fg;
 }

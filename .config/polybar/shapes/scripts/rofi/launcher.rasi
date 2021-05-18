@@ -26,7 +26,7 @@ window {
     background-color:               @bg;
     text-color:                     @fg;
 	border:							4px;
-	border-color:					#d8dee9;
+	border-color:					@bg4;
     border-radius:                  0px;
 	width:							350px;
     location:                       center;

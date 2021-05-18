@@ -23,10 +23,10 @@ configuration {
 
 window {
     transparency:                   "real";
-    background-color:               @bg;
+    background-color:               @bg2;
     text-color:                     @fg;
-	border:							0px;
-	border-color:					@ac;
+	border:							4px;
+	border-color:					@bg4;
     border-radius:                  0px;
 	width:							400px;
     location:                       center;

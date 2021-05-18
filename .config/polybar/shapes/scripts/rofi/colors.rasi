@@ -6,5 +6,7 @@
   bg1:   #81a1c1;
   bg2:   #5e81ac;
   bg3:   #5e81ac;
+  bg4:   #d8dee9;
   fg:    #ffffff;
+
 }
