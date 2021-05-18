@@ -8,10 +8,10 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
+	font:							"Roboto 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
-    display-drun: 					"";
+    display-drun: 					"🔎";
     drun-display-format:            "{name}";
     disable-history:                false;
     fullscreen:                     false;
@@ -39,12 +39,12 @@ prompt {
 	padding: 						10px 15px 10px 15px;
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
-	font:							"Iosevka Nerd Font 11";
+	font:							"Roboto 11";
 }
 
 textbox-prompt-colon {
 	padding: 						10px 15px 10px 15px;
-	font:							"Iosevka Nerd Font 11";
+	font:							"Roboto 11";
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
 	expand: false;
