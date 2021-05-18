@@ -44,7 +44,7 @@ get_total_updates() {
 #done
 get_total_updates
 if (( UPDATES > 0 ));then
-    echo "%{B#a3be8c} %{F#ffffff}$UPDATES%{F-} %{B-}"
+    echo "%{B#a3be8c}  %{F#ffffff}$UPDATES%{F-}  %{B-}"
 else
     echo "%{F#ffffff}None%{F-}"
 fi
@@ -64,3 +64,5 @@ if [ $((currTime-lastTime)) -ge $threshHold ];then
         echo "lastTime="$currTime > $lastUpdateFile
     fi
 fi
+
+
