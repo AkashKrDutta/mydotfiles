@@ -52,6 +52,7 @@ compton &
 xscreensaver &
 xss-lock -- xscreensaver-command --lock &
 pkill dunst; dunst &
+xsetroot -cursor_name left_ptr
 
 # Remove unplugged and disabled monitors
 bspc config remove_unplugged_monitors true

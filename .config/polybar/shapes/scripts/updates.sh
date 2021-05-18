@@ -44,9 +44,9 @@ get_total_updates() {
 #done
 get_total_updates
 if (( UPDATES > 0 ));then
-    echo "%{B#a3be8c} %{F#2e3440}$UPDATES%{F-} %{B-}"
+    echo "%{B#a3be8c} %{F#ffffff}$UPDATES%{F-} %{B-}"
 else
-    echo "%{F#88c0d0}None%{F-}"
+    echo "%{F#ffffff}None%{F-}"
 fi
 threshHold=$((3600*2))
 lastUpdateFile=$HOME/.config/polybar/shapes/scripts/lastUpdateNotify.sh 
