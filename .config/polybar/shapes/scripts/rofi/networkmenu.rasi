@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Roboto 11";
+	font:							"San Francisco Text 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"🔎";
@@ -39,12 +39,12 @@ prompt {
 	padding: 						10px 15px 10px 15px;
 	background-color: 				@bg2;
 	text-color: 					#FFFFFF;
-	font:							"Roboto 11";
+	font:							"San Francisco Text 11";
 }
 
 textbox-prompt-colon {
 	padding: 						10px 15px 10px 15px;
-	font:							"Roboto 11";
+	font:							"San Francisco Text 11";
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
 	expand: false;

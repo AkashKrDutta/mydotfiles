@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Roboto 11";
+	font:							"San Francisco Text 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus-Dark";
     display-drun: 					"🔎";
@@ -39,7 +39,7 @@ prompt {
 	padding: 						10px 15px 10px 15px;
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
-	font:							"Roboto 11";
+	font:							"San Francisco Text 11";
 }
 
 entry {
