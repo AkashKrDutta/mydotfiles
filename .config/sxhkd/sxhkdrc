@@ -79,30 +79,37 @@ super + ctrl + {h,j,k,l}
 
 # preselect the ratio
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+  bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
-	bspc node -p cancel
+  bspc node -p cancel
 
 # Audio control
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -2%
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +2%
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Brightness control
 XF86MonBrightnessDown
-    xbacklight -dec 5
+  xbacklight -dec 5
 XF86MonBrightnessUp
-    xbacklight -inc 5
+  xbacklight -inc 5
 
 # Keyboard backlight 
 XF86KbdBrightnessUp
-    sudo /opt/tweaks/kbd_backlight_adjust -inc
+  sudo /opt/tweaks/kbd_backlight_adjust -inc
 XF86KbdBrightnessDown
-    sudo /opt/tweaks/kbd_backlight_adjust -dec
+  sudo /opt/tweaks/kbd_backlight_adjust -dec
 
+# Notification bindings dunst
+# Replay previous notifications
+super + n
+  dunstctl history-pop
+# Restart dunst --> Reset notifications count
+super + shift + N
+  pkill dunst; dunst &
 
 # Following are some helpful commands but not shortcuts made yet
 # Swaps desktops from monitor 2:1 to 2:2 and renames them
