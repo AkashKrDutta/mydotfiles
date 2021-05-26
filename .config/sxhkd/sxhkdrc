@@ -40,6 +40,10 @@ super + alt + s
 super + {comma,period}
   bspc desktop -f {prev,next}.local
 
+# focus the n/p desktop in current monitor
+super + {bracketleft,bracketright}
+  bspc node -f {prev,next}.local
+
 # Smart resize, will grow or shrink depending on location.
 # Will always grow for floating nodes.
 super + ctrl + {Left,Down,Up,Right}

@@ -28,11 +28,14 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+# Firefox download dialogues to appear floating 
+# Check with xprop the wm class/name info
+bspc rule -a 'Firefox:*:Library' state=floating follow=on center=on
 
 # Custom configs
 
@@ -57,3 +60,11 @@ xsetroot -cursor_name left_ptr
 # Remove unplugged and disabled monitors
 bspc config remove_unplugged_monitors true
 #bspc config remove_disabled_monitors true
+
+
+# Disable caps lock button, replace it with both press of left and right shift keys
+setxkbmap -option "caps:none"
+setxkbmap -option "shift:both_capslock"
+
+
+bspc rule -a 

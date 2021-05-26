@@ -80,11 +80,15 @@ nnoremap <tab> %
 vnoremap <tab> %
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <silent> <C-f> :Files<CR>
+inoremap jj <Esc>
 let $FZF_DEFAULT_COMMAND = "find . -not -path '*/.git/*'"
+" Resizes to equal width all splits in windo resizes, currently
+" vim doesn't scale with window resizing a todo in vim
+autocmd VimResized * wincmd =
