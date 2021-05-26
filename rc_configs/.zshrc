@@ -123,12 +123,14 @@ PURE_CMD_MAX_EXEC_TIME=60
 PURE_PROMPT_SYMBOL='⤷'
 
 #Config variables for custom apps installed via script
-eval `dircolors $HOME/dotapps/dotfiles/gnome-terminal/dircolors`
+eval `dircolors $HOME/.dir_colors`
 
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#A3BE8C,fg+:-1,bg+:-1,hl+:#A3BE8C
---color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
-'
+    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
+    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
+    '
+export FZF_DEFAULT_COMMAND="find . -not -path '*/.git/*'"
