@@ -134,3 +134,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
     --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
     '
 export FZF_DEFAULT_COMMAND="find . -not -path '*/.git/*'"
+vman(){
+    man $@ | vim -MR +MANPAGER -
+}
