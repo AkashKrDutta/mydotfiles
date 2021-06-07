@@ -40,6 +40,12 @@ super + alt + s
 super + {comma,period}
   bspc desktop -f {prev,next}.local
 
+super + {less, greater}
+  src_desktop=$(bspc query -D -d focused --names); \
+  dst_desktop=$(bspc query -D -d {prev,next} --names); \
+  bspc desktop "^$src_desktop" -s "^$dst_desktop" -n "$dst_desktop"; \
+  bspc desktop "^$src_desktop" -n "$src_desktop"
+
 # focus the n/p desktop in current monitor
 super + {bracketleft,bracketright}
   bspc node -f {prev,next}.local
