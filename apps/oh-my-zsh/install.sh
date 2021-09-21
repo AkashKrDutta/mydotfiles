@@ -28,9 +28,10 @@ cp $DOTAPPS_HOME/apps/oh-my-zsh/zshrc $ZDOTDIR/.zshrc
 sed -i "s|export ZSH=.*|export ZSH=$ZSH|" $ZDOTDIR/.zshrc
 
 # Setup man paths
-echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
-echo 'export MANPATH="'"$INSTALL_PATH/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
-echo 'export MANPATH="'"$INSTALL_PATH/share/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
+# Required in non-standard paths of installation
+#echo -e "\n#Config variables for custom apps installed via script">> $ZDOTDIR/.zshrc
+#echo 'export MANPATH="'"$INSTALL_PATH/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
+#echo 'export MANPATH="'"$INSTALL_PATH/share/man"'":$MANPATH' >> $ZDOTDIR/.zshrc
 
 # Install some basic plugins
 print_subheader "Installing oh-my-zsh plugins"

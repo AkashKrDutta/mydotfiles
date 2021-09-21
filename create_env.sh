@@ -9,17 +9,24 @@ DOTAPPS_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Setup enviroment for installing the apps
 export INSTALL_DIRECTORY="$INSTALL_DIRECTORY"
-export PATH="$INSTALL_DIRECTORY/local/bin":$PATH
-export LD_LIBRARY_PATH="$INSTALL_DIRECTORY/local/lib":$LD_LIBRARY_PATH
-export CPPFLAGS="-I$INSTALL_DIRECTORY/local/include" export LDFLAGS="-L$INSTALL_DIRECTORY/local/lib"
+export BUILD_DIRECTORY="$BUILD_DIRECTORY"
+
+# If its a non-standard install directory need to create links for bin, include, lib
+if [[ "$INSTALL_DIRECTORY" != "$HOME/.local" && "$INSTALL_DIRECTORY" != "/usr/local" ]]; then
+	export PATH="$INSTALL_DIRECTORY/bin":$PATH
+	export LD_LIBRARY_PATH="$INSTALL_DIRECTORY/lib":$LD_LIBRARY_PATH
+	export CPPFLAGS="-I$INSTALL_DIRECTORY/include"
+	export LDFLAGS="-L$INSTALL_DIRECTORY/lib"
+fi
+
+export INSTALL_PATH="$INSTALL_DIRECTORY"
 
 # Log file for errors
 LOG_FILE="$DOTAPPS_HOME/debug.log"
 
 # File structure information
-export APPS_DIRECTORY="$INSTALL_DIRECTORY/apps"
-export INSTALL_PATH="$INSTALL_DIRECTORY/local"
-export DOT_DIRECTORY="$INSTALL_DIRECTORY/dotfiles"
+export APPS_DIRECTORY="$BUILD_DIRECTORY/apps"
+export DOT_DIRECTORY="$BUILD_DIRECTORY/dotfiles"
 
 # Create the file structure
 mkdir -p $APPS_DIRECTORY 
@@ -30,7 +37,6 @@ mkdir -p $DOT_DIRECTORY
 # Required for configuring
 export ZDOTDIR="$DOT_DIRECTORY/zsh"
 export OHMYZSH_DOWNLOAD_PATH="$APPS_DIRECTORY/oh-my-zsh"
-export DRACULA_PATH="$DOT_DIRECTORY/gnome-terminal"
 export PURE_PROMPT_PATH="$DOT_DIRECTORY/pure-prompt"
 
 # This functions makes changes to bash for installing various apps

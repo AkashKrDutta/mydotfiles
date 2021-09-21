@@ -13,11 +13,12 @@ if [ -f ~/.bashrc ] && [ ! -f ~/.bashrc.dotapps.orig ]; then
 fi
 
 # Create a tmp copy of bashrc that will be replaced if abort trap is called
-echo -e "\n#Config variables for custom apps installed via script" >> ~/.bashrc
-echo 'export PATH='"$INSTALL_PATH/bin"':$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH='"$INSTALL_PATH/lib"':$LD_LIBRARY_PATH' >> ~/.bashrc
-echo 'export CPPFLAGS='"-I$INSTALL_PATH/include" >> ~/.bashrc
-echo 'export LDFLAGS='"-L$INSTALL_PATH/lib" >> ~/.bashrc
+# Only need the following for non standard paths to .local
+#echo -e "\n#Config variables for custom apps installed via script" >> ~/.bashrc
+#echo 'export PATH='"$INSTALL_PATH/bin"':$PATH' >> ~/.bashrc
+#echo 'export LD_LIBRARY_PATH='"$INSTALL_PATH/lib"':$LD_LIBRARY_PATH' >> ~/.bashrc
+#echo 'export CPPFLAGS='"-I$INSTALL_PATH/include" >> ~/.bashrc
+#echo 'export LDFLAGS='"-L$INSTALL_PATH/lib" >> ~/.bashrc
 
 print_footer "Done"
 
