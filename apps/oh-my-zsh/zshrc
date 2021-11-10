@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#custom functions
 function d() {
     if [[ $# == 0 ]]; then
     dirs -v
@@ -105,6 +106,11 @@ function d() {
     cd ~${1}
     fi
 }
+
+function op() {
+    xdg-open "$@"
+}
+
 
 alias grepc="grep --color=always"
 export TERM="xterm-256color"
