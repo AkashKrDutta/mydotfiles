@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#custom functions
 function d() {
     if [[ $# == 0 ]]; then
     dirs -v
@@ -105,12 +106,17 @@ function d() {
     fi
 }
 
+function op() {
+    xdg-open "$@"
+}
+
+
 alias grepc="grep --color=always"
 export TERM="xterm-256color"
 
 #Config variables for custom apps installed via script
-export MANPATH="$HOME/dotapps/local/man":$MANPATH
-export MANPATH="$HOME/dotapps/local/share/man":$MANPATH
+#export MANPATH="$HOME/dotapps/local/man":$MANPATH
+#export MANPATH="$HOME/dotapps/local/share/man":$MANPATH
 
 fpath+="$HOME/pure"
 autoload -U promptinit; promptinit
@@ -123,7 +129,7 @@ PURE_CMD_MAX_EXEC_TIME=60
 PURE_PROMPT_SYMBOL='⤷'
 
 #Config variables for custom apps installed via script
-eval `dircolors $HOME/.dir_colors`
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
