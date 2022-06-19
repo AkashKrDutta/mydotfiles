@@ -43,6 +43,7 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'edkolev/tmuxline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 syntax on
